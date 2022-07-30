@@ -1,9 +1,10 @@
-import Map from "../User/Home/Map";
+import CreateUserAccount from "../User/CreateUserAccount";
+import React from "react";
 
 function App() {
   return (
     <div className="App">
-      <Map/>
+      <CreateUserAccount/>
     </div>
   );
 }
