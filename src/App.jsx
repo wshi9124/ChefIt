@@ -8,7 +8,7 @@ import CreateUserAccount from './commonComponents/CreateUserAccount';
 import UpdatePersonalInfo from './commonComponents/UpdatePersonalInfo';
 import Request from './commonComponents/Request';
 import UserHome from './pages/User/UserHome';
-import './app.css'
+import './app.css';
 
 function App() {
   return (
@@ -24,9 +24,10 @@ function App() {
       <Route path="/chef" element={<Chef />} />
       <Route path="/userrequests" element={<Request />} />
       <Route path="/chefrequests" element={<Request />} />
-      <Route path = "/map" element={<UserHome/>} />
+      <Route path="/map" element={<UserHome />} />
       <Route path="*" element={<Login />} />
     </Routes>
+
   );
 }
 

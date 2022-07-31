@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function Logo() {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="logo">
       <h1> Chef It This is the Header add pictures</h1>
       <h2>Your go to place to rent personal chefs</h2>
       <h2>

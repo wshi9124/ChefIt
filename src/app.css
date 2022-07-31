@@ -1,4 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    text-align: center;
+    background-color: #945d60 ;
+    font-family: Impact, fantasy;
+}
+
+.login {
+    background-image: url("../public/loginbackgroundpic.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 90%;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0;
+    bottom: 0;
+}
+
+.loginform {
+    text-align: center;
+    top: 50%;
+    bottom: 50%;
+}
+
 .mapcontainer {
     width: 100%;
     height: 100vh;
 }
+
