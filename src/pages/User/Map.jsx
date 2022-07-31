@@ -8,16 +8,22 @@ const options = {
   mapId: "ccddd10830cd3672"
 }
 
-function LoadMap({longitude,latitude,title}) {
+function LoadMap({longitude,latitude,title,chefData={}}) {
   const {isLoaded} = useLoadScript({
     googleMapsApiKey:key 
   });
 
   if (!isLoaded) return <div>Loading...</div>
-  return <Map longitude={longitude}latitude={latitude} title={title}/>
+  return <Map longitude={longitude}latitude={latitude} title={title}chefData={chefData}/>
 }
 
-function Map({longitude,latitude,title}) {
+function Map({longitude,latitude,title,chefData}) {
+  // const cheflong = useMemo(()=> 
+  // chefData.filter(chef=>chef.longitude && chef.latitude)
+  // )
+  const chefMarkers = chefData.map(chef=>
+      <Marker key={chef.id}title={chef.first_name + " " + chef.last_name} position={{lat:chef.latitude,lng:chef.longitude}} />)
+  console.log(chefMarkers)
   const center = useMemo(()=>({lat:latitude,lng:longitude}),[]);
 
   return (
@@ -26,7 +32,8 @@ function Map({longitude,latitude,title}) {
     zoom={10}
     options={options} 
     center={center}>
-      <Marker title={title}icon={iconimage}position={center}/>
+      {chefMarkers}
+      <Marker key={0} title={title}icon={iconimage}position={center}/>
     </GoogleMap>)
 }
 

@@ -20,10 +20,8 @@ function UserHome() {
             <LoadMap longitude={userData.longitude} latitude={userData.latitude} title={userData.first_name}/>
         )
     }
-    const chefMap = chefData.filter(chef=>chef.latitude)
-    console.log(chefMap)
     return (
-        <LoadMap longitude={userData.longitude} latitude={userData.latitude} title={userData.first_name}
+        <LoadMap chefData={chefData} longitude={userData.longitude} latitude={userData.latitude} title={userData.first_name}
             
         />
     )
