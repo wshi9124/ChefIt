@@ -1,13 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
 
 function ChefNavBar() {
   const navigate = useNavigate();
   return (
     <div>
-      <h2>This is the Chef Nav Bar My Profile is chef in Routes</h2>
-      <a onClick={() => { navigate('/chef'); }}>My Profile CAN BE CLICKED</a>
-      <a onClick={() => { navigate('/chefrequests'); }}>Requests CAN BE CLICKED</a>
+      <Nav fill variant="tabs" defaultActiveKey="/home">
+        <Nav.Item>
+          <Nav.Link onClick={() => { navigate('/chef'); }}>Portfolio</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link onClick={() => { navigate('/chefrequests'); }}>My Profile / Requests</Nav.Link>
+        </Nav.Item>
+      </Nav>
     </div>
   );
 }

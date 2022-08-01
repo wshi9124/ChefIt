@@ -8,7 +8,7 @@ function User() {
     <div>
       <Logo />
       <UserNavBar />
-      <h1>This is User Page</h1>
+      <h1>This is User Home Page</h1>
     </div>
   );
 }
