@@ -36,6 +36,5 @@ function Map({longitude,latitude,title,chefData}) {
     </GoogleMap>)
 }
 
-
-export {LoadMap}
-export {Map}
+// export { LoadMap };
+// export { Map };

@@ -13,7 +13,7 @@ function CreateAccountModal() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Create New Account
+        Sign up here!
       </Button>
 
       <Modal show={show} onHide={handleClose} centered>
