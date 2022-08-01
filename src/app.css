@@ -1,3 +1,4 @@
+
 #root{
     margin: 0;
     padding: 0;
@@ -49,9 +50,47 @@
 }
 .mapcontainer {
     width: 100%;
-    height: 80vh;
+    height: 90vh;
 }
 .loginHeader {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
+}
+
+/*
+Side Drop Bar
+
+*/
+/* The sidebar menu */
+.sidebar {
+  position: absolute;
+  top: 60px;
+  left: -15vw;
+  height: 100%;
+  width: 15vw;
+  transition: left 0.3s ease-in-out;
+  background-color: lightgray;
+}
+.sidebar-toggle {
+  position: absolute;
+  top: 20%;
+  right: -60px;
+  height: 60px;
+  width: 60px;
+  z-index: 1;
+}
+.content {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  transition: left 0.3s ease-in-out;
+  background-color: black;
+}
+.sidebar.open {
+  left: 0;
+}
+.content.open {
+  left: 15vw;
 }
