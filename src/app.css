@@ -25,7 +25,6 @@
     display: flex;
     padding-top: 120px;
     font-weight: bolder;
-;
 }
 .login-form {
     display: flex;
@@ -64,16 +63,17 @@ Side Drop Bar
 /* The sidebar menu */
 .sidebar {
   position: absolute;
-  top: 60px;
-  left: -15vw;
+  left: -45vw;
   height: 100%;
-  width: 15vw;
-  transition: left 0.3s ease-in-out;
-  background-color: lightgray;
+  width: 45vw;
+  transition: left 0.5s ease-in-out;
+  background-color: white;
+  z-index: 1;
+  align-items: center;
 }
+
 .sidebar-toggle {
   position: absolute;
-  top: 20%;
   right: -60px;
   height: 60px;
   width: 60px;
@@ -81,16 +81,37 @@ Side Drop Bar
 }
 .content {
   position: absolute;
-  top: 60px;
   left: 0;
   right: 0;
   height: 100%;
-  transition: left 0.3s ease-in-out;
-  background-color: black;
+  transition: left 0.5s ease-in-out;
+  background-color:white;
 }
 .sidebar.open {
   left: 0;
 }
 .content.open {
   left: 15vw;
+}
+#grid-sidebar {
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px 10px;
+    max-width: fit-content;
+}
+.border-image {
+    border-radius: 5px;
+}
+
+.info-header {
+    margin: 5px auto;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-weight: 600;
+}
+.badge {
+    padding: 3px;
+    border-radius: 3px;
 }

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Marker, InfoWindow } from '@react-google-maps/api';
 
-function OneMarker({ chef = {} }) {
-  console.log(chef);
+function OneMarker({ markerCenter, chef = {} }) {
+
   const [isOpen, setOpen] = useState(false);
 
   function handleOpen() {
+    markerCenter(chef)
     setOpen(!isOpen);
   }
   return (

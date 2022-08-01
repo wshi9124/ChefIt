@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import ChefInfo from './ChefInfo';
 import { LoadMap } from './Map';
 import SideBar from './sidebar';
 
@@ -21,9 +20,8 @@ function UserHome() {
   if (Object.keys(userData).length === 0 || chefData.length === 0) return <div>Map Loading...</div>;
   return (
     <>
-      <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar}/>
+      <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} chefData={chefData}/>
       <LoadMap chefData={chefData} longitude={userData.longitude} latitude={userData.latitude} title={userData.first_name} />
-      <ChefInfo chefData={chefData} />
     </>
   );
 }
