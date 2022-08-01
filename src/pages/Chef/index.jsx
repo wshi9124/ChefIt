@@ -7,8 +7,8 @@ function Chef() {
   return (
     <div>
       <Logo />
-      <h1>This is Chef Page</h1>
       <ChefNavBar />
+      <h1>This is Chef Portfolio Page</h1>
     </div>
   );
 }
