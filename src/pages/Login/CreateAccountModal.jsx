@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+
 function CreateAccountModal() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -9,10 +10,10 @@ function CreateAccountModal() {
   const navigate = useNavigate();
   return (
     <>
-    <div className="d-grid gap-2 mb-3">
-      <button className="btn btn-dark btn-lg border-0 rounded-0" variant="primary" onClick={handleShow}>
-        Sign up here!
-      </button>
+      <div className="d-grid gap-2 mb-3">
+        <button className="btn btn-dark btn-lg border-0 rounded-0" variant="primary" onClick={handleShow}>
+          Sign up here!
+        </button>
       </div>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
