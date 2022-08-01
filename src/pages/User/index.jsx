@@ -7,8 +7,8 @@ function User() {
   return (
     <div>
       <Logo />
-      <h1>This is User Page</h1>
       <UserNavBar />
+      <h1>This is User Page</h1>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .logo-container {
@@ -12,12 +13,10 @@
    
 }
 
-
 .login {
     background-image: url("../public/loginbackgroundpic.jpg");
     background-size: cover;
-    background-position: center; 
-    opacity: 85%; 
+    background-position: center;  
     position: fixed;
     top: 0%;
     left: 0%;
@@ -26,21 +25,39 @@
     text-align: center;
     justify-content: center;
     display: flex;
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 120px;
+    font-weight: bolder;
 }
 
-.loginform {
+.login-form {
     display: flex;
     justify-content: center;
-    height: 600px;
-    width: 35%;
-    padding-top: 50px;
+    height: 750px;
+    width: 30%;
     background-color: white;
-    box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
-    padding-top: 30px;
-    border-radius: 60px;
+    box-shadow: 5px 5px 5px 5px rgb(207, 207, 207);
+    padding-top: 90px;
+    border-radius: 50px;
+
 }
+
+.login-logo{
+    background-color: #496ebd;
+    padding: 20px;
+    border-radius: 30%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    top: 40px;
+    width: 160px;
+    height: auto;
+}
+
+.login-img{
+
+}
+
+
 
 .mapcontainer {
     width: 100%;
