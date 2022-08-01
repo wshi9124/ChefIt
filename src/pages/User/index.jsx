@@ -1,8 +1,6 @@
 import React from 'react';
-
 import Logo from '../../commonComponents/Logo';
 import UserNavBar from './UserNavBar';
-
 function User() {
   return (
     <div>
@@ -12,5 +10,4 @@ function User() {
     </div>
   );
 }
-
 export default User;
