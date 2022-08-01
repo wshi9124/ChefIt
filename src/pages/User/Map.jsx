@@ -14,12 +14,13 @@ function LoadMap({longitude,latitude,title,chefData}) {
     googleMapsApiKey:key 
   });
 
-  if (!isLoaded) return <div>Loading...</div>
+  if (!isLoaded) return <div>Map Loading...</div>
   return <Map longitude={longitude}latitude={latitude}title={title}chefData={chefData}/>
 }
 
 function Map({longitude,latitude,title,chefData}) {
   const center = useMemo(()=>({lat:latitude,lng:longitude}),[]);
+  console.log(center)
   return (
     <GoogleMap 
     mapContainerClassName="mapcontainer" 
@@ -36,5 +37,5 @@ function Map({longitude,latitude,title,chefData}) {
     </GoogleMap>)
 }
 
-// export { LoadMap };
-// export { Map };
+export { LoadMap };
+export { Map };

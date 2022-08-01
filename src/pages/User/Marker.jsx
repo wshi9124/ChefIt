@@ -2,7 +2,7 @@ import { Marker, InfoWindow } from "@react-google-maps/api"
 import { useState } from "react"
 
 function OneMarker({chef={}}) {
-
+    console.log(chef)
     const [isOpen,setOpen] = useState(false)
 
     function handleOpen() {
