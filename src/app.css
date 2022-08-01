@@ -1,4 +1,4 @@
-*{
+#root {
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -52,13 +52,6 @@
     width: 160px;
     height: auto;
 }
-
-.login-img{
-
-}
-
-
-
 .mapcontainer {
     width: 100%;
     height: 80vh;
