@@ -3,13 +3,11 @@ import React from 'react';
 function CreateUserAccount() {
   return (
     <div className="signupContainer">
-      <div className='row'>
         <div className="col-md-6 off-md-3">
-          <div className='signup-form'>
     <form action="" className="mt-5 border p-4 bg-light shadow">
-      <div className="row">
+      <h4 class="mb-5 text">Create Customer Account</h4>
       <div className="mb-3">
-        <label className="form-label"> First Name</label>
+        <label className="form-label"> First Name:</label>
         <input
           required
             //   onChange={handleInput}
@@ -21,7 +19,7 @@ function CreateUserAccount() {
         />
       </div>
       <div className="mb-3">
-        <label className="form-label">Last Name</label>
+        <label className="form-label">Last Name:</label>
         <input
           required
             //   onChange={handleInput}
@@ -33,8 +31,20 @@ function CreateUserAccount() {
         />
       </div>
       <div className="mb-3">
+        <label className="form-label"> Email:</label>
+        <input
+          required
+            //   onChange={handleInput}
+            //   value={inputs.fName}
+          type="text"
+          className="form-control"
+          id="email"
+          placeholder='Email'
+        />
+      </div>
+      <div className="mb-3">
         <label htmlFor="birthday" className="form-label">
-          Birthday
+          Birthday:
         </label>
         <input
           required
@@ -101,15 +111,41 @@ function CreateUserAccount() {
           placeholder='Write bio here...'
         />
       </div>
+      <div className="mb-3">
+        <label htmlFor="longitutde" className="form-label">
+          Longitude:
+        </label>
+        <input
+          required
+            //   onChange={handleInput}
+            //   value={inputs.username}
+          type="text"
+          className="form-control"
+          id="longitude"
+          placeholder='Longitude'
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="latitude" className="form-label">
+          Latitude:
+        </label>
+        <input
+          required
+            //   onChange={handleInput}
+            //   value={inputs.username}
+          type="text"
+          className="form-control"
+          id="latitude"
+          placeholder='Latitude'
+        />
+      </div>
       <button type="submit" className="btn btn-success btn-lg btn-block">
         Create Account
       </button>
-      </div>
     </form>
     </div>
     </div>
-    </div>
-    </div>
+
   );
 }
 

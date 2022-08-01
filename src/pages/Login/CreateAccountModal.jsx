@@ -22,6 +22,7 @@ function CreateAccountModal() {
           <div>
             <Button onClick={() => { navigate('/chefsignup'); }}>Sign up as Chef</Button>
           </div>
+          <p></p>
           <Button onClick={() => { navigate('/customersignup'); }}>Sign up as a Customer</Button>
         </Modal.Body>
         <Modal.Footer>
