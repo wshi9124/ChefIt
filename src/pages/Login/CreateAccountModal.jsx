@@ -10,9 +10,9 @@ function CreateAccountModal() {
   return (
     <>
     <div className="d-grid gap-2 mb-3">
-      <button className="btn btn-dark btn-lg border-0 rounded-0" variant="primary" onClick={handleShow}>
+      <Button variant="primary" onClick={handleShow}>
         Sign up here!
-      </button>
+      </Button>
       </div>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
