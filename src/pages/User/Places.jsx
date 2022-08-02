@@ -1,4 +1,4 @@
-// import {Combobox,ComboboxInput,ComboboxPopover,ComboboxList,ComboboxOption} from 
+// import {Combobox,ComboboxInput,ComboboxPopover,ComboboxList,ComboboxOption} from
 
 // function Places() {
 
@@ -9,4 +9,4 @@
 //     )
 // }
 
-// export default Places 
+// export default Places
