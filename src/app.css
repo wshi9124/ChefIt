@@ -29,7 +29,7 @@
 .login-form {
     display: flex;
     justify-content: center;
-    height: 600px;
+    height: 650px;
     width: 30%;
     background-color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -130,6 +130,8 @@ Side Drop Bar
   background-color: white;
   z-index: 1;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-style: none;
 }
 
 .sidebar-toggle {
@@ -138,6 +140,17 @@ Side Drop Bar
   height: 60px;
   width: 60px;
   z-index: 1;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-style: none;
+  background-color: white;
+}
+.sidebar-button-shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    clip-path: inset(-15px -15px -15px 0px);
+}
+.sidebar-closed-button {
+    margin: 0 auto;
 }
 .content {
   position: absolute;
@@ -174,4 +187,41 @@ Side Drop Bar
 .badge {
     padding: 3px;
     border-radius: 3px;
+}
+
+
+.searchbar {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    width: 240px;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    outline: none;
+    text-overflow: ellipses;
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    margin-left: -120px;
+    z-index: 2;
+}
+#user-home {
+    overflow: hidden;
+}
+.select-dropdown {
+    padding: 0 12px;
+    outline: none;
+    text-overflow: ellipses;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    z-index: 2;
+    top: 15%;
+    left: 50%;
+    margin-left: -120px;
+    width: 240px;
+    height: 32px;
 }

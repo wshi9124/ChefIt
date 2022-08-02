@@ -1,5 +1,5 @@
-import { GoogleMap, useLoadScript, MarkerClusterer, Marker, Autocomplete,LoadScript } from '@react-google-maps/api';
-import { useEffect, useMemo, useState, useRef, useCallback } from 'react';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import { useMemo, useState, useRef, useCallback } from 'react';
 import OneMarker from './Marker';
 import Places from './Places';
 
@@ -12,27 +12,28 @@ const options = {
 };
 
 function LoadMap({
-  longitude, latitude, title, chefData,
+  longitude, latitude, title, chefData,location,setLocation,zoom
 }) {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: key,
-    libraries: ["places"]
   });
 
   if (!isLoaded) return <div>Map Loading...</div>;
-  return <Map longitude={longitude} latitude={latitude} title={title} chefData={chefData} />;
+  return <Map zoom={zoom}setLocation={setLocation} longitude={longitude} location={location} latitude={latitude} title={title} chefData={chefData} />;
 }
 
-function Map({longitude, latitude, title, chefData,}) {
+function Map({longitude, latitude, title, chefData,location,setLocation,zoom}) {
   const mapRef = useRef()
-  const [location,setLocation] = useState({})
-  const center = useMemo(() => ({ lat: latitude, lng: longitude }), []);
   
+  const center = useMemo(() => ({ lat: latitude, lng: longitude }), []);
+
   const onLoad = useCallback(map=>(mapRef.current=map),[]);
 
   function markerCenter(chef) {
-    console.log(chef)
+    setLocation({lat:chef.latitude,lng:chef.longitude})
   }
+  console.log(zoom)
+  
   return ( 
     <>
       {/* <div className='controls'>
@@ -44,32 +45,11 @@ function Map({longitude, latitude, title, chefData,}) {
       <div className="map">
         <GoogleMap 
           mapContainerClassName="mapcontainer"
-          zoom={13}
+          zoom={zoom}
           options={options}
-          center={center}
+          center={location}
           onLoad={onLoad}
         >
-          <Autocomplete>
-          <input
-              type="text"
-              placeholder="Customized your placeholder"
-              style={{
-                boxSizing: `border-box`,
-                border: `1px solid transparent`,
-                width: `240px`,
-                height: `32px`,
-                padding: `0 12px`,
-                borderRadius: `3px`,
-                boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                fontSize: `14px`,
-                outline: `none`,
-                textOverflow: `ellipses`,
-                position: "absolute",
-                left: "50%",
-                marginLeft: "-120px"
-              }}
-            />
-          </Autocomplete>
           {
             chefData.map((chef) => <OneMarker key={chef.id} chef={chef} markerCenter={markerCenter} />)
           }
