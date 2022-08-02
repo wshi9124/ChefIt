@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LoadMap } from './Map';
 import SideBar from './sidebar';
 
