@@ -26,6 +26,7 @@ function Login() {
                 <option value="user">Chef</option>
                 <label htmlFor="form-select">Type of User:</label>
               </select>
+              <p></p>
               <div className="d-grid gap-2 mb-3">
                 <button type="button" className="btn btn-dark btn-lg border-0 rounded-0" value="Login">Login</button>
               </div>
