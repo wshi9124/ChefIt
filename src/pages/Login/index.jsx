@@ -100,8 +100,6 @@ function Login() {
               <p>Dont have an account?</p>
               <CreateAccountModal />
             </form>
-            <button type="button" onClick={() => { navigate('/user'); }}>Login as User </button>
-            <button type="button" onClick={() => { navigate('/chef'); }}>Login as Chef</button>
             <p />
           </div>
         </div>

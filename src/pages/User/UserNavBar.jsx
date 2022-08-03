@@ -8,17 +8,14 @@ function UserNavBar() {
   const navigate = useNavigate();
   return (
     <div>
-      <Navbar className='navbar' bg="light" variant="light">
+      <Navbar className="navbar" bg="light" variant="light">
         <Container>
-          <Nav className='justify-content-start'>
-            <Nav.Link onClick={() => { navigate('/user') }}>Chef it</Nav.Link>
-          </Nav>
-          <Nav className='justify-content-between'>
-            <Nav.Link onClick={() => { navigate('/userrequests')}}>My Requests</Nav.Link>
+          <Nav className="justify-content-start">
+            <Nav.Link onClick={() => { navigate('/user'); }}>Home/Map</Nav.Link>
           </Nav>
           <Nav className="justify-content-end">
-            <Nav.Link href="/">Log Out</Nav.Link>
-            </Nav>
+            <Nav.Link onClick={() => { navigate('/userrequests'); }}>My Requests/Edit Profile</Nav.Link>
+          </Nav>
         </Container>
       </Navbar>
     </div>
