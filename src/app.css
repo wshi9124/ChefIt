@@ -65,11 +65,9 @@
   padding-bottom: 50px;
 }
 
-.mt-5 {
-
-}
 
 .requestContainer {
+  z-index: 5;
   display: absolute;
   flex-direction: column;
   gap: 10px;
@@ -121,6 +119,65 @@
 .navbarBrand {
   font-size: xx-large;
 }
+
+.editButton {
+
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.editButton:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.editButton:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.editButton:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.editButton:focus {
+  outline: 1px transparent;
+}
+
+.editButton:before {
+  display: none;
+}
+
+.editButton:-webkit-details-marker {
+  display: none;
+}
+
 
 /*
 Side Drop Bar
@@ -238,24 +295,34 @@ Side Drop Bar
     height: 32px;
 }
 .chef-home {
-  padding: 5% 10%;
+  padding: 0.5% 5%;
+  height: max-content;
 }
 .rounded-image {
-  border-radius: 5px;
+  border-radius: 50%;
   object-fit: fill;
 }
-.profile-container {
-  position: absolute;
-  top:50%;
-  left:50%
-}
-.image-overlay-container {
-  position: relative;
-  max-width: 600px;
-  max-height: 400px;
-  padding: 10px;
-  }
 .text-overlay-container {
   position: absolute;
+}
+
+.info-popup-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.star-review {
+  color: #FFD700;
+}
   
+.infoText {
+  padding-top: 5%;
+  border-bottom: 0.5px solid rgb(211, 211, 211);
+
+}
+
+.editProfileInputs {
+  padding-top: 5%;
 }

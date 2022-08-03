@@ -29,7 +29,6 @@ useEffect(()=> {
           </div>
             <div>
               <p>{info.first_name+" "+info.last_name}</p>
-
             </div>
             <div>
 
