@@ -61,8 +61,11 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  text-align: left;
+  text-align: left; 
+  padding-bottom: 50px;
 }
+
+
 .requestContainer {
   display: absolute;
   flex-direction: column;
