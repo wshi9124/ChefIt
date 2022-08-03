@@ -3,6 +3,7 @@ import { LoadMap } from './Map';
 import SideBar from './sidebar';
 import SearchBar from './searchbar';
 import Select from './Select';
+import Spinner from '../../commonComponents/spinner';
 
 import compareprice from './compareprice';
 
@@ -78,7 +79,7 @@ function UserHome() {
       setZoom(13)
   }
   function handleViewSidebar() {setSideBarOpen(!sidebarOpen)};
-  if (Object.keys(userData).length === 0 || chefData.length === 0) return <><Logo/><ChefNavBar/><div>Map Loading...</div></>;
+  if (Object.keys(userData).length === 0 || chefData.length === 0) return <><Logo/><ChefNavBar/><Spinner text="Server Loading..."/></>;
   return (
     <div id="user-home">
       <Logo/>

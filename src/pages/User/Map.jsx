@@ -1,7 +1,7 @@
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import { useMemo, useState, useRef, useCallback } from 'react';
 import OneMarker from './Marker';
-import Places from './Places';
+import Spinner from '../../commonComponents/spinner';
 
 const key = process.env.REACT_APP_GOOGLE_MAPS_KEY;
 const iconimage = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
@@ -18,15 +18,26 @@ function LoadMap({
     googleMapsApiKey: key,
   });
 
-  if (!isLoaded) return <div>Map Loading...</div>;
+  if (!isLoaded) return <Spinner text="Map Loading..."/>;
   return <Map zoom={zoom}setLocation={setLocation} longitude={longitude} location={location} latitude={latitude} title={title} chefData={chefData} />;
 }
 
 function Map({longitude, latitude, title, chefData,location,setLocation,zoom}) {
   const mapRef = useRef()
-  
+
   const center = useMemo(() => ({ lat: latitude, lng: longitude }), []);
 
+  // if (navigator.geolocation) {
+  //   navigator.geolocation.getCurrentPosition((position) => {
+  //     const {coords} = position
+  //     setLocation({lat:coords.latitude,lng:coords.lng})
+  //   })
+  // }
+  // else {
+  //   const 
+  // }
+
+  console.log(navigator.geolocation)
   const onLoad = useCallback(map=>(mapRef.current=map),[]);
 
   function markerCenter(chef) {
