@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Logo from '../../commonComponents/Logo';
-import ChefNavBar from './ChefNavbar';
 
-function Chef() {
+function ViewChef() {
 
 const [info, setInfo] = useState([])
 
@@ -18,7 +17,6 @@ useEffect(()=> {
   return (
     <>
       <Logo />
-      <ChefNavBar />
       <div className='chef-home'>
         <h1>Your Profile</h1>
         
@@ -41,4 +39,4 @@ useEffect(()=> {
   );
 }
 
-export default Chef;
+export default ViewChef;

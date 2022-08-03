@@ -10,6 +10,7 @@ import UpdatePersonalInfo from './commonComponents/UpdatePersonalInfo';
 import UserRequest from './pages/User/UserRequest';
 import ChefRequest from './pages/Chef/ChefRequest';
 import UserHome from './pages/User/UserHome';
+import ViewChef from './pages/User/viewchef';
 import './app.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/customersignup" element={<CreateUserAccount />} />
       <Route path="/chefsignup" element={<CreateChefAccount />} />
       <Route path="/updateinfo" element={<UpdatePersonalInfo />} />
+      <Route path="/viewchef" element={<ViewChef />} />
       {/* <Route path="/updateuserinfo" element={<UpdatePersonalInfo />} />
       <Route path="/updatechefinfo" element={<UpdatePersonalInfo />} /> */}
       <Route path="/user" element={<User />} />
