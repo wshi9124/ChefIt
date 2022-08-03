@@ -8,7 +8,7 @@ import CreateAccountModal from './CreateAccountModal';
 function Login() {
   const navigate = useNavigate();
 
-  const { setAuth } = useContext(AuthContext);
+  const { auth, setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -16,7 +16,6 @@ function Login() {
   const [password, setPassword] = useState('');
   const [accountType, setAccountType] = useState('customer');
   const [errorMessage, setErrorMessage] = useState('');
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -28,9 +27,22 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setUser('');
-    setPassword('');
-    setSuccess(true);
+    fetch(`http://localhost:9292/${accountType.toLowerCase()}/login?username=${user}&password=${password}`)
+      .then((response) => response.json())
+      .then((userInfo) => {
+        console.log(userInfo);
+        if (userInfo.success === true && accountType === 'customer') {
+          setAuth(userInfo.data);
+          navigate('/user');
+        } else if (userInfo.success === true && accountType === 'chef') {
+          setAuth(userInfo.data);
+          navigate('/chef');
+        } else {
+          setErrorMessage(userInfo.errorMessage);
+          setUser('');
+          setPassword('');
+        }
+      });
   };
 
   return (
@@ -78,7 +90,7 @@ function Login() {
                 onChange={(e) => setAccountType(e.target.value)}
               >
                 <option value="customer">Customer</option>
-                <option value="user">Chef</option>
+                <option value="chef">Chef</option>
                 <label htmlFor="form-select">Type of User:</label>
               </select>
               <p />
