@@ -64,6 +64,7 @@
   text-align: left;
 }
 .requestContainer {
+  z-index: 5;
   display: absolute;
   flex-direction: column;
   gap: 10px;
@@ -251,5 +252,13 @@ Side Drop Bar
   }
 .text-overlay-container {
   position: absolute;
-  
+}
+.info-popup-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.star-review {
+  color: #FFD700;
 }
