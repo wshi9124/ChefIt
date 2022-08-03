@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Logo from '../../commonComponents/Logo';
 import ChefNavBar from './ChefNavbar';
 import MoreInfoPopup from './moreinfopopup';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 
 function ChefRequest() {
