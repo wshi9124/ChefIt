@@ -28,7 +28,6 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user, password);
     setUser('');
     setPassword('');
     setSuccess(true);
@@ -91,10 +90,10 @@ function Login() {
             </form>
             <button type="button" onClick={() => { navigate('/user'); }}>Login as User </button>
             <button type="button" onClick={() => { navigate('/chef'); }}>Login as Chef</button>
-            <p></p>
+            <p />
           </div>
         </div>
-        <p></p>
+        <p />
       </div>
     </section>
   );
