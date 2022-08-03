@@ -15,16 +15,16 @@ function CreateAccountModal() {
           Sign up here!
         </Button>
       </div>
-      <Modal show={show} onHide={handleClose} centered>
+      <Modal show={show} onHide={handleClose} centered style={{ textAlign: 'center' }}>
         <Modal.Header closeButton>
           <Modal.Title>Type of Account</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
-            <Button onClick={() => { navigate('/chefsignup'); }}>Sign up as Chef</Button>
+            <Button variant="warning" onClick={() => { navigate('/chefsignup'); }}>Sign up as Chef</Button>
           </div>
           <p />
-          <Button onClick={() => { navigate('/customersignup'); }}>Sign up as a Customer</Button>
+          <Button variant="info" onClick={() => { navigate('/customersignup'); }}>Sign up as a Customer</Button>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
