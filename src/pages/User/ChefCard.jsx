@@ -11,7 +11,7 @@ function ChefCard({ chefcardinfo }) {
   return (
 
     <div onClick={handleonClick} className="chefinfocontainer">
-      <img className="border-image" src={image} />
+      <img className="border-image" width="350px" height="350px" src={image} />
       <div className="info-header">
         <p className="badge" style={{ backgroundColor: 'blue' }}>{`${chefcardinfo.first_name} ${chefcardinfo.last_name}`}</p>
         <p className="badge" style={{ backgroundColor: 'orange' }}>

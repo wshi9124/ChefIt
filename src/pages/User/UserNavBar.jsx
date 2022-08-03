@@ -16,6 +16,9 @@ function UserNavBar() {
           <Nav className='justify-content-between'>
             <Nav.Link onClick={() => { navigate('/userrequests')}}>My Requests</Nav.Link>
           </Nav>
+          <Nav className='justify-content-between'>
+            <Nav.Link onClick={() => { navigate('/userhome')}}>Home</Nav.Link>
+          </Nav>
           <Nav className="justify-content-end">
             <Nav.Link href="/">Log Out</Nav.Link>
             </Nav>
