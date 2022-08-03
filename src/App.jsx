@@ -28,7 +28,6 @@ function App() {
       <Route path="/chef" element={<Chef />} />
       <Route path="/userrequests" element={<UserRequest />} />
       <Route path="/chefrequests" element={<ChefRequest />} />
-      <Route path="/userhome" element={<UserHome />} />
       <Route path="*" element={<Login />} />
     </Routes>
 

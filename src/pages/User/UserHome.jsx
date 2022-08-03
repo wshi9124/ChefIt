@@ -7,9 +7,6 @@ import Spinner from '../../commonComponents/spinner';
 
 import compareprice from './compareprice';
 
-import Logo from '../../commonComponents/Logo';
-import ChefNavBar from '../Chef/ChefNavbar';
-
 function UserHome() {
   const [userData, setUserData] = useState({});
   const [chefData, setChefData] = useState([]);
@@ -79,11 +76,9 @@ function UserHome() {
       setZoom(13)
   }
   function handleViewSidebar() {setSideBarOpen(!sidebarOpen)};
-  if (Object.keys(userData).length === 0 || chefData.length === 0) return <><Logo/><ChefNavBar/><Spinner text="Server Loading..."/></>;
+  if (Object.keys(userData).length === 0 || chefData.length === 0) return <Spinner text="Server Loading..."/>;
   return (
     <div id="user-home">
-      <Logo/>
-      <ChefNavBar/>
       <SideBar textcallback={textcallback} isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} chefData={sortChef}/>
       <LoadMap zoom={zoom} setLocation={setLocation} location={location} chefData={chefData} 
       longitude={userData.longitude} latitude={userData.latitude} title={userData.first_name} />
