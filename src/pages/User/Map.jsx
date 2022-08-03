@@ -7,7 +7,7 @@ const key = process.env.REACT_APP_GOOGLE_MAPS_KEY;
 const iconimage = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 const options = {
   clickableIcons: false,
-  mapId: 'e263c88944c4840d',
+  mapId: '3ba9a0ff8dbfeaed',
   disableDefaultUI: true
 };
 

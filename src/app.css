@@ -49,7 +49,7 @@
 }
 .mapcontainer {
     width: 100%;
-    height: 90vh;
+    height: 80vh;
 }
 .loginHeader {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -213,11 +213,17 @@ Side Drop Bar
     margin-left: -120px;
     z-index: 2;
 }
+.searchbar::placeholder {
+  text-align: center; 
+}
+
 #user-home {
     overflow: hidden;
 }
 .select-dropdown {
-    padding: 0 12px;
+    text-align-last:center;
+    direction: ltr;
+    /* padding-left:; */
     outline: none;
     text-overflow: ellipses;
     border-radius: 10px;
@@ -230,4 +236,26 @@ Side Drop Bar
     margin-left: -120px;
     width: 240px;
     height: 32px;
+}
+.chef-home {
+  padding: 5% 10%;
+}
+.rounded-image {
+  border-radius: 5px;
+  object-fit: fill;
+}
+.profile-container {
+  position: absolute;
+  top:50%;
+  left:50%
+}
+.image-overlay-container {
+  position: relative;
+  max-width: 600px;
+  max-height: 400px;
+  padding: 10px;
+  }
+.text-overlay-container {
+  position: absolute;
+  
 }

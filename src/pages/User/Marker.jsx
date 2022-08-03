@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Marker, InfoWindow } from '@react-google-maps/api';
+import { NavLink } from 'react-router-dom';
 
 function OneMarker({ markerCenter, chef = {} }) {
 
@@ -18,14 +19,16 @@ function OneMarker({ markerCenter, chef = {} }) {
         ? (
           <InfoWindow onCloseClick={() => setOpen(false)}>
             <>
-              <h1>{ `${chef.first_name} ${chef.last_name}`}</h1>
-              <p>
-                {' '}
-                $
-                {chef.chef_price}
-                0
-              </p>
-              <p>{chef.email}</p>
+            <NavLink style={{textDecoration:"none",color:"black"}} to ={"/viewchef"}>
+                <h1>{ `${chef.first_name} ${chef.last_name}`}</h1>
+                <p>
+                  {' '}
+                  $
+                  {chef.chef_price}
+                  0
+                </p>
+                <p>{chef.email}</p>
+              </NavLink>
             </>
           </InfoWindow>
         )

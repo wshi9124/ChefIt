@@ -1,24 +1,9 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-=======
 import React, { useEffect } from 'react';
 import { useState } from 'react';
->>>>>>> a48224239834f23bfe12ff2131e7377eb1177465
 import Logo from '../../commonComponents/Logo';
-import ChefNavBar from './ChefNavbar';
 
-function Chef() {
-  const [info, setInfo] = useState([]);
+function ViewChef() {
 
-<<<<<<< HEAD
-  fetch('http://localhost:9292/chef/info')
-    .then((res) => res.json())
-    .then((infoData) => {
-      setInfo(infoData);
-      console.log(infoData);
-    });
-
-=======
 const [info, setInfo] = useState([])
 
 useEffect(()=> {
@@ -29,23 +14,9 @@ useEffect(()=> {
     console.log(infoData)
   })
 },[])
->>>>>>> a48224239834f23bfe12ff2131e7377eb1177465
   return (
     <>
       <Logo />
-      <ChefNavBar />
-<<<<<<< HEAD
-      <h1>Your Profile</h1>
-      <div>
-        <div>
-          <h2>Username</h2>
-          <div>{info.username}</div>
-        </div>
-        <div />
-        <div />
-      </div>
-    </div>
-=======
       <div className='chef-home'>
         <h1>Your Profile</h1>
         
@@ -65,8 +36,7 @@ useEffect(()=> {
             </div>
         </div>
     </>
->>>>>>> a48224239834f23bfe12ff2131e7377eb1177465
   );
 }
 
-export default Chef;
+export default ViewChef;
