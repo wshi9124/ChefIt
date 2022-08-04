@@ -15,7 +15,6 @@ function ChefRequest() {
         setRequests(jsonResult);
       });
   }, []);
-  console.log(requests)
   return (
     <div>
       <Logo />
