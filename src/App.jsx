@@ -9,6 +9,7 @@ import CreateChefAccount from './pages/Login/CreateChefAccount';
 import UserRequest from './pages/User/UserRequest';
 import ChefRequest from './pages/Chef/ChefRequest';
 import ViewChef from './pages/User/viewchef';
+
 import './app.css';
 
 function App() {
@@ -18,11 +19,11 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/customersignup" element={<CreateUserAccount />} />
       <Route path="/chefsignup" element={<CreateChefAccount />} />
-      <Route path="/viewchef" element={<ViewChef />} />
       <Route path="/user" element={<User />} />
       <Route path="/chef" element={<Chef />} />
       <Route path="/userrequests" element={<UserRequest />} />
       <Route path="/chefrequests" element={<ChefRequest />} />
+      <Route path="/viewchef" element={<ViewChef/>} />
       <Route path="*" element={<Login />} />
     </Routes>
 

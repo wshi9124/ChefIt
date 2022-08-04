@@ -5,7 +5,7 @@ import LogOutButton from '../../commonComponents/LogOutButton';
 import MoreInfoPopup from './moreinfopopup';
 
 function ChefRequest() {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {

@@ -7,7 +7,7 @@ function Chef() {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:9292/chef/info')
+    fetch('http://localhost:9292/chef/1')
       .then((res) => res.json())
       .then((infoData) => {
         setInfo(infoData);

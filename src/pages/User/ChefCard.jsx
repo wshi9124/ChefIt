@@ -6,7 +6,7 @@ const image = 'https://idea7.co.uk/wp-content/uploads/2021/02/placeholder-250x25
 function ChefCard({ chefcardinfo }) {
   const navigate = useNavigate()
   function handleonClick() {
-    navigate("/viewchef")
+    navigate("/viewchef/"+chefcardinfo.id)
   }
   return (
 
