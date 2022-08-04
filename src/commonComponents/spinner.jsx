@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Spinner({ text }) {
   return (
     <div className="center-flex">
