@@ -8,7 +8,7 @@ function MoreInfoPopup({
   const reviewList = user_comments.map((review) => (
     <div className="info-popup-item" key={review.id}>
       <p>{review.comment}</p>
-      {starfill(review.rating)}
+      <StarFill iter={review.rating}/>
     </div>
     ))
     return (
