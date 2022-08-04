@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import AuthContext from '../Login/AuthProvider';
+import { useContext } from 'react';
 
-function EditChefProfileModal() {
+function EditChefProfileModal({auth}) {
   const [show, setShow] = useState(false);
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
@@ -16,6 +18,9 @@ function EditChefProfileModal() {
 
   function handleSubmit(e) {
       e.preventDefault()
+      
+    
+
   }
 
   const handlePhone = (e) => {
@@ -103,7 +108,7 @@ function EditChefProfileModal() {
               onChange={handleLatitude}></input>
           </div>
           <p />
-          <Button onClick={() => { navigate('/customersignup'); }}>Save</Button>
+          <Button type='submit'>Save</Button>
         </Modal.Body>
       </Modal>
             </form>
