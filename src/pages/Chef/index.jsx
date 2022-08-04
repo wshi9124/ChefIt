@@ -8,8 +8,8 @@ import ProfilePosts from './ProfilePosts';
 const img = "https://media.istockphoto.com/photos/old-grunge-dark-textured-wooden-backgroundthe-surface-of-the-old-picture-id865432924?k=20&m=865432924&s=612x612&w=0&h=fCWAbNMq85WP8oWie-DtmZmDzJxV5c61rU9TmG2uPdk="
 const placeholder = "https://idea7.co.uk/wp-content/uploads/2021/02/placeholder-250x250-1.png"
 function Chef() {
-  // const [info, setInfo] = useState([]);
-  // const { auth } = useContext(AuthContext);
+  const [info, setInfo] = useState([]);
+  const { auth } = useContext(AuthContext);
 
   return (
     <>
