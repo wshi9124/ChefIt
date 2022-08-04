@@ -9,7 +9,7 @@ function ChefRequest() {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:9292/chef/requests/4')
+    fetch('http://localhost:9292/chef/requests/2')
       .then((res) => res.json())
       .then((jsonResult) => {
         setRequests(jsonResult);
