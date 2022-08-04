@@ -1,12 +1,11 @@
-import Badge from 'react-bootstrap/Badge';
 import { Navigate, useNavigate } from 'react-router-dom';
-
+import StarFill from '../../commonComponents/starfill';
 const image = 'https://idea7.co.uk/wp-content/uploads/2021/02/placeholder-250x250-1.png';
 
 function ChefCard({ chefcardinfo }) {
   const navigate = useNavigate();
   function handleonClick() {
-    navigate('/viewchef');
+    navigate("/viewchef/"+chefcardinfo.id)
   }
   return (
 
@@ -21,8 +20,8 @@ function ChefCard({ chefcardinfo }) {
           0
           {' '}
         </p>
-
-        <p>Rating</p>
+        {chefcardinfo.cuisines.map(cuisine=><p className="badge" style={{ backgroundColor: 'green' }}>{cuisine.name}</p>)}
+        <StarFill iter={chefcardinfo.avg_rating}/>
       </div>
     </div>
   );
