@@ -41,10 +41,10 @@ function Login() {
           setErrorMessage(userInfo.errorMessage);
           setUser('');
           setPassword('');
+          console.log(errorMessage);
         }
       });
   };
-  console.log(auth);
 
   return (
     <section className="login">

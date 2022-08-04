@@ -1,25 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Logo from '../../commonComponents/Logo';
 import UserNavBar from './UserNavBar';
+import AuthContext from '../Login/AuthProvider';
 import LogOutButton from '../../commonComponents/LogOutButton';
 
 function UserRequest() {
+  const { auth } = useContext(AuthContext);
+  const [modalShow, setModalShow] = React.useState(false);
+  const [requests, setRequests] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:9292/chef/requests/4')
+      .then((res) => res.json())
+      .then((jsonResult) => {
+        setRequests(jsonResult);
+      });
+  }, []);
+
   return (
     <div>
       <Logo />
       <UserNavBar />
+      <LogOutButton />
       <div>
         <h1>User Profile</h1>
         <p>Username</p>
+        <p>{auth.username}</p>
         <p>Image</p>
         <p>First Name</p>
+        <p>{auth.first_name}</p>
         <p>Last Name</p>
+        <p>{auth.last_name}</p>
         <p>Phone</p>
+        <p>{auth.phone}</p>
         <p>Email</p>
-        <p>Longitude</p>
-        <p>Latitude</p>
+        <p>{auth.email}</p>
+        <p>Location</p>
+        <p>
+          latitude
+          {' '}
+          {auth.latitude}
+          {' '}
+          longitude
+          {' '}
+          {auth.longitude}
+        </p>
       </div>
-      <LogOutButton />
     </div>
   );
 }

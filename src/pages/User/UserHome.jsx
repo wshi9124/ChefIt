@@ -10,59 +10,59 @@ import compareprice from './compareprice';
 function UserHome() {
   const [userData, setUserData] = useState({});
   const [chefData, setChefData] = useState([]);
-  const [sidebarOpen,setSideBarOpen] = useState(false);
-  const [searchChef,setsearchChef] = useState([])
-  const [text,setText] = useState("")
+  const [sidebarOpen, setSideBarOpen] = useState(false);
+  const [searchChef, setsearchChef] = useState([]);
+  const [text, setText] = useState('');
 
-  const [location,setLocation] = useState({})
-  const [zoom,setZoom] = useState(13)
+  const [location, setLocation] = useState({});
+  const [zoom, setZoom] = useState(13);
 
-  const [select,setSelect] = useState("id")
+  const [select, setSelect] = useState('id');
 
   useEffect(() => {
     fetch('http://localhost:9292/user/home/1').then((resp) => resp.json())
-      .then(data=> {
-        setUserData(data)
-        setLocation({lat:data.latitude,lng:data.longitude})
-      })
+      .then((data) => {
+        setUserData(data);
+        setLocation({ lat: data.latitude, lng: data.longitude });
+      });
   }, []);
   useEffect(() => {
     fetch('http://localhost:9292/chefs').then((resp) => resp.json())
-      .then(data=> {
-        setChefData(data)
-        setsearchChef(data)
-          });
+      .then((data) => {
+        setChefData(data);
+        setsearchChef(data);
+        console.log(data);
+      });
   }, []);
 
-  const filterChef = searchChef.filter(chef => {
-    if (!text) return true
-    for (let attr in chef) {
-      if (chef[attr]) { 
-        if (chef[attr].toString().includes(text)) return true
+  const filterChef = searchChef.filter((chef) => {
+    if (!text) return true;
+    for (const attr in chef) {
+      if (chef[attr]) {
+        if (chef[attr].toString().includes(text)) return true;
       }
     }
-    return false
-  })
-  const sortChef = select === "id" ? filterChef : filterChef.sort((a,b)=> {
-    if (select==="chef_price_asc") {
-      return compareprice(a.chef_price,b.chef_price,"asc")
+    return false;
+  });
+  const sortChef = select === 'id' ? filterChef : filterChef.sort((a, b) => {
+    if (select === 'chef_price_asc') {
+      return compareprice(a.chef_price, b.chef_price, 'asc');
     }
-    else if(select==="chef_price_desc") {
-      return compareprice(a.chef_price,b.chef_price,"desc")
+    if (select === 'chef_price_desc') {
+      return compareprice(a.chef_price, b.chef_price, 'desc');
     }
-    else {
-      if (a[select] < b[select]) return -1
-      else if (a[select] > b[select]) return 1
-      else return 0
-    }
-  })
+
+    if (a[select] < b[select]) return -1;
+    if (a[select] > b[select]) return 1;
+    return 0;
+  });
 
   function selectcallback(select) {
-    setSelect(select)
+    setSelect(select);
   }
 
   function textcallback(text) {
-      setText(text)
+    setText(text);
   }
   function searchcallback() {
     // for (let i = filterChef.length-1; i>=0; i--) {
@@ -71,19 +71,26 @@ function UserHome() {
     //   filterChef.splice(index,1)
     //   filterChef.unshift(ele)
     // }
-       const {latitude,longitude} = filterChef[0]
-       setLocation({lat:latitude,lng:longitude})
-      setZoom(13)
+    const { latitude, longitude } = filterChef[0];
+    setLocation({ lat: latitude, lng: longitude });
+    setZoom(13);
   }
-  function handleViewSidebar() {setSideBarOpen(!sidebarOpen)};
-  if (Object.keys(userData).length === 0 || chefData.length === 0) return <Spinner text="Server Loading..."/>;
+  function handleViewSidebar() { setSideBarOpen(!sidebarOpen); }
+  if (Object.keys(userData).length === 0 || chefData.length === 0) return <Spinner text="Server Loading..." />;
   return (
     <div id="user-home">
-      <SideBar textcallback={textcallback} isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} chefData={sortChef}/>
-      <LoadMap zoom={zoom} setLocation={setLocation} location={location} chefData={chefData} 
-      longitude={userData.longitude} latitude={userData.latitude} title={userData.first_name} />
-      <SearchBar text={text}textcallback={textcallback} searchcallback={searchcallback}/>
-      <Select select={select} selectcallback={selectcallback}/>
+      <SideBar textcallback={textcallback} isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} chefData={sortChef} />
+      <LoadMap
+        zoom={zoom}
+        setLocation={setLocation}
+        location={location}
+        chefData={chefData}
+        longitude={userData.longitude}
+        latitude={userData.latitude}
+        title={userData.first_name}
+      />
+      <SearchBar text={text} textcallback={textcallback} searchcallback={searchcallback} />
+      <Select select={select} selectcallback={selectcallback} />
     </div>
   );
 }
