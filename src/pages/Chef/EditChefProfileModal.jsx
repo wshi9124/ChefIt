@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import AuthContext from '../Login/AuthProvider';
-import { useContext } from 'react';
 
-function EditChefProfileModal({auth}) {
+function EditChefProfileModal({ auth }) {
   const [show, setShow] = useState(false);
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');

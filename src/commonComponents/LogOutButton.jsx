@@ -4,10 +4,12 @@ import AuthContext from '../pages/Login/AuthProvider';
 
 function LogOutButton() {
   const navigate = useNavigate();
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth, setIsCustomerLogOn, setIsChefLog } = useContext(AuthContext);
 
   const handleLogOut = () => {
     setAuth({});
+    setIsCustomerLogOn(false);
+    setIsChefLog(false);
     navigate('/login');
   };
 
