@@ -1,3 +1,4 @@
+import React from 'react';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 
 function StarFill({ iter }) {

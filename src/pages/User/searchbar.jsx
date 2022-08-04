@@ -1,3 +1,5 @@
+import React from 'react';
+
 function SearchBar({ textcallback, text, searchcallback }) {
   function handleInput(e) {
     const text = e.target.value;

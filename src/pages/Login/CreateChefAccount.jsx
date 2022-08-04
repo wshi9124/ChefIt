@@ -191,7 +191,7 @@ function CreateChefAccount() {
         <button type="submit" className="btn btn-primary btn-lg btn-block">
           Create Account
         </button>
-        <button type="click" className="btn btn-secondary btn-lg btn-block" style={{ marginLeft: '10px' }} onClick={handleBack}>
+        <button type="button" className="btn btn-secondary btn-lg btn-block" style={{ marginLeft: '10px' }} onClick={handleBack}>
           Back
         </button>
       </form>

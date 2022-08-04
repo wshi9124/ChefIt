@@ -1,7 +1,7 @@
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
-import {
+import React, {
   useMemo, useState, useRef, useCallback,
 } from 'react';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import OneMarker from './Marker';
 import Spinner from '../../commonComponents/spinner';
 
