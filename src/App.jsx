@@ -6,10 +6,8 @@ import User from './pages/User';
 import Chef from './pages/Chef';
 import CreateUserAccount from './pages/Login/CreateUserAccount';
 import CreateChefAccount from './pages/Login/CreateChefAccount';
-import UpdatePersonalInfo from './commonComponents/UpdatePersonalInfo';
 import UserRequest from './pages/User/UserRequest';
 import ChefRequest from './pages/Chef/ChefRequest';
-import UserHome from './pages/User/UserHome';
 import ViewChef from './pages/User/viewchef';
 import './app.css';
 
@@ -20,10 +18,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/customersignup" element={<CreateUserAccount />} />
       <Route path="/chefsignup" element={<CreateChefAccount />} />
-      <Route path="/updateinfo" element={<UpdatePersonalInfo />} />
       <Route path="/viewchef" element={<ViewChef />} />
-      {/* <Route path="/updateuserinfo" element={<UpdatePersonalInfo />} />
-      <Route path="/updatechefinfo" element={<UpdatePersonalInfo />} /> */}
       <Route path="/user" element={<User />} />
       <Route path="/chef" element={<Chef />} />
       <Route path="/userrequests" element={<UserRequest />} />
