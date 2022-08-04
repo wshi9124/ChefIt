@@ -8,7 +8,9 @@ import CreateAccountModal from './CreateAccountModal';
 function Login() {
   const navigate = useNavigate();
 
-  const { auth, setAuth } = useContext(AuthContext);
+  const {
+    auth, setAuth, setIsCustomerLogOn, setIsChefLog,
+  } = useContext(AuthContext);
   const userRef = useRef();
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
@@ -26,9 +28,13 @@ function Login() {
       .then((userInfo) => {
         if (userInfo.success === true && accountType === 'customer') {
           setAuth(userInfo.data);
+          setIsCustomerLogOn(true);
+          setIsChefLog(false);
           navigate('/user');
         } else if (userInfo.success === true && accountType === 'chef') {
           setAuth(userInfo.data);
+          setIsCustomerLogOn(false);
+          setIsChefLog(true);
           navigate('/chef');
         } else {
           setErrorMessage(userInfo.errorMessage);

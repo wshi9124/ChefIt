@@ -4,7 +4,7 @@ import AuthContext from './AuthProvider';
 
 function CreateChefAccount() {
   const navigate = useNavigate();
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth, setIsCustomerLogOn, setIsChefLog } = useContext(AuthContext);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -38,12 +38,16 @@ function CreateChefAccount() {
     });
     navigate('/login');
     setAuth({});
+    setIsCustomerLogOn(false);
+    setIsChefLog(false);
     alert('Chef account has been created');
   };
 
   const handleBack = () => {
     navigate('/login');
     setAuth({});
+    setIsCustomerLogOn(false);
+    setIsChefLog(false);
   };
 
   return (

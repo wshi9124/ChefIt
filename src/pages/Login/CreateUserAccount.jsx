@@ -4,7 +4,7 @@ import AuthContext from './AuthProvider';
 
 function CreateUserAccount() {
   const navigate = useNavigate();
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth, setIsCustomerLogOn, setIsChefLog } = useContext(AuthContext);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -37,12 +37,16 @@ function CreateUserAccount() {
     });
     navigate('/login');
     setAuth({});
+    setIsCustomerLogOn(false);
+    setIsChefLog(false);
     alert('Customer Account has been created');
   };
 
   const handleBack = () => {
     navigate('/login');
     setAuth({});
+    setIsCustomerLogOn(false);
+    setIsChefLog(false);
   };
 
   return (
