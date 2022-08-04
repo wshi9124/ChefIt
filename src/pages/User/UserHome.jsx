@@ -31,6 +31,7 @@ function UserHome() {
       .then(data=> {
         setChefData(data)
         setsearchChef(data)
+        console.log(data)
           });
   }, []);
 

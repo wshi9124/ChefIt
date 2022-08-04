@@ -14,6 +14,7 @@ function MoreInfoPopup ({show,onHide,fullname="",user_comments}) {
           <BsStarFill key={i}/> 
               )
               }
+              {!Number.isInteger(filteredrating) && filteredrating >= 0.5 ? <BsStarHalf/> && iter+1  : null} 
               {
               [...Array(5-iter)].map((e,i)=> <BsStar key={i}/>)
               }
@@ -30,12 +31,7 @@ function MoreInfoPopup ({show,onHide,fullname="",user_comments}) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-          <div className='info-popup-item'>
-            <h2>{fullname}</h2>
-            <p> {starfill(filteredrating)} 
-                {!Number.isInteger(filteredrating) && filteredrating >= 0.5 ? <BsStarHalf/> : null} 
-            </p>
-            </div>
+            <h2>{fullname} {starfill(filteredrating)}</h2>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
