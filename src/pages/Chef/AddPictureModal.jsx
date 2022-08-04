@@ -16,8 +16,8 @@ function AddPictureModal() {
 
   const [dishName,setdishName] = useState("")
   const [imgLink,setimgLink] = useState("")
-  function handleSubmit() {
-    fetch("http:/localhost:9292/posts/1",
+  function handleSubmit({id}) {
+    fetch("http:/localhost:9292/posts/"+id,
     {...postHeader,body:JSON.stringify(
       dishName,
       imgLink
@@ -34,8 +34,8 @@ function AddPictureModal() {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>Woohoo, you're reading this text in a modal!
-          <input onChange={(e)=>setdishName(e.target.value)} type="text"/>
-          <input onChange={(e)=>setimgLink(e.target.value)} type ="text"/>
+          <input placeholder='Dish Name' onChange={(e)=>setdishName(e.target.value)} type="text"/>
+          <input placeholder='Image Link' onChange={(e)=>setimgLink(e.target.value)} type ="text"/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick = {handleSubmit}>Post</Button>

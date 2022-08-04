@@ -16,10 +16,10 @@ const deleteHeader = {
             }
 }
 
-function ProfilePosts() {
+function ProfilePosts({id}) {
     const [posts,setPosts] = useState([])
     useEffect(()=> {
-        fetch("http://localhost:9292/posts/1").then(resp=>resp.json()).then(setPosts)
+        fetch("http://localhost:9292/posts/"+id).then(resp=>resp.json()).then(setPosts)
     },[])
 
     function handleSubmit() {

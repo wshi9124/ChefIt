@@ -161,7 +161,7 @@ function CreateChefAccount() {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="longitutde" className="form-label">
+          <label htmlFor="longitude" className="form-label">
             Longitude:
           </label>
           <input
@@ -185,18 +185,6 @@ function CreateChefAccount() {
             placeholder="Latitude"
             value={latitude}
             onChange={(e) => setlatitude(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Price:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="price"
-            placeholder="Price"
-            value={Price}
-            onChange={(e) => setLastName(e.target.value)}
             required
           />
         </div>

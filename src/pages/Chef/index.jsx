@@ -10,7 +10,7 @@ const placeholder = "https://idea7.co.uk/wp-content/uploads/2021/02/placeholder-
 function Chef() {
   const [info, setInfo] = useState([]);
   const { auth } = useContext(AuthContext);
-
+  console.log(auth)
   return (
     <>
     <ChefNavBar/>
@@ -35,8 +35,9 @@ function Chef() {
             </div>
           </div>
       </div>
-      <AddPictureModal/>
-      <ProfilePosts />
+      <EditChefProfileModal auth={auth}/>
+      <AddPictureModal id={auth.id}/>
+      <ProfilePosts id = {auth.id}/>
     </>
   );
 }
