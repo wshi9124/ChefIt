@@ -195,7 +195,7 @@ function CreateChefAccount() {
             onChange={(e) => setLastName(e.target.value)}
             required
           />
-          </div>
+        </div>
         <button type="submit" className="btn btn-primary btn-lg btn-block">
           Create Account
         </button>
