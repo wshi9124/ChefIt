@@ -9,7 +9,6 @@ function MoreInfoPopup ({show,onHide,fullname="",user_comments}) {
     </div>
     )
     function starfill(iter) {
-      console.log(iter)
       return (
         <p className='star-review'>{[...Array(iter)].map((e,i) =>
           <BsStarFill key={i}/> 
