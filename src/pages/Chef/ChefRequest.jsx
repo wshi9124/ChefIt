@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Logo from '../../commonComponents/Logo';
 import ChefNavBar from './ChefNavbar';
+import LogOutButton from '../../commonComponents/LogOutButton';
 import MoreInfoPopup from './moreinfopopup';
 
 function ChefRequest() {
@@ -14,11 +15,12 @@ function ChefRequest() {
         setRequests(jsonResult);
       });
   }, []);
-
+  console.log(requests)
   return (
     <div>
       <Logo />
       <ChefNavBar />
+      <LogOutButton />
       <h1 className="myrequesttext"> My Requests </h1>
       <p />
       {/* <div className='image-overlay-container'>
@@ -65,10 +67,8 @@ function ChefRequest() {
           </tbody>
         </table>
       </div>
-    </div>
-  //   </div>
-  // </div>
 
+    </div>
   );
 }
 

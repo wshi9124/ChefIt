@@ -34,7 +34,7 @@ function UserRequest() {
               <th className="th">Request Date</th>
               <th className="th">Status</th>
               <th className="th">Created At</th>
-              <th className="th">User</th>
+              <th className="th">Chef</th>
             </tr>
           </thead>
           <tbody>
@@ -52,12 +52,12 @@ function UserRequest() {
                               }
                 </td>
                 <td className="td">
-                  {`${item.user.first_name} ${item.user.last_name}`}
+                  {`${item.chef.first_name} ${item.chef.last_name}`}
                   <button type="button" onClick={() => setModalShow(true)}>More</button>
                   <MoreInfoPopup
                     show={modalShow}
-                    fullname={`${item.user.first_name} ${item.user.last_name}`}
-                    user_comments={item.user.user_comments}
+                    fullname={`${item.chef.first_name} ${item.chef.last_name}`}
+                    user_comments={item.chef.user_comments}
                     onHide={() => setModalShow(false)}
                   />
                 </td>

@@ -111,4 +111,4 @@ function EditChefProfileModal() {
   )
 }
 
-export default EditChefProfileModal
+export default EditChefProfileModal;

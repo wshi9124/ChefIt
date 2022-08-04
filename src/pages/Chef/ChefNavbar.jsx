@@ -13,11 +13,8 @@ function ChefNavBar() {
           <Nav className="justify-content-start">
             <Nav.Link onClick={() => { navigate('/chef'); }}>My Profile</Nav.Link>
           </Nav>
-          <Nav className="justify-content-between">
-            <Nav.Link onClick={() => { navigate('/chefrequests'); }}>My Portfolio / Requests</Nav.Link>
-          </Nav>
           <Nav className="justify-content-end">
-            <Nav.Link href="/">Log Out</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/chefrequests'); }}>My Portfolio / Requests</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

@@ -1,21 +1,25 @@
 import { Modal,Button } from 'react-bootstrap';
-import {BsStar,BsStarFill} from 'react-icons/bs'
+import { BsStar,BsStarFill,BsStarHalf } from 'react-icons/bs'
 
 function MoreInfoPopup ({show,onHide,fullname="",user_comments}) {
-
-    // Object.fromEntries(Object.entries(user_comments).filter(([rating]) => key.includes('Name')));
+    const filteredrating = user_comments.map(comment=> comment.rating).reduce((sum,ele) => sum + ele)
     const reviewList = user_comments.map(review=><div className='info-popup-item' key={review.id}>
     <p>{review.comment}</p>
-    <p className='star-review'>{[...Array(review.rating)].map((e,i) =>
-        <BsStarFill key={i}/> 
-            )
-            }
-            {
-            [...Array(5-review.rating)].map((e,i)=> <BsStar key={i}/>)
-            }
-        </p>
-        </div>
+    {starfill(review.rating)}
+    </div>
     )
+    function starfill(iter) {
+      return (
+        <p className='star-review'>{[...Array(iter)].map((e,i) =>
+          <BsStarFill key={i}/> 
+              )
+              }
+              {
+              [...Array(5-iter)].map((e,i)=> <BsStar key={i}/>)
+              }
+          </p>
+      )
+    }
     return (
         <Modal
         show={show}
@@ -26,7 +30,12 @@ function MoreInfoPopup ({show,onHide,fullname="",user_comments}) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            {fullname} Reviews
+          <div className='info-popup-item'>
+            <h2>{fullname}</h2>
+            <p> {starfill(filteredrating)} 
+                {!Number.isInteger(filteredrating) && filteredrating >= 0.5 ? <BsStarHalf/> : null} 
+            </p>
+            </div>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

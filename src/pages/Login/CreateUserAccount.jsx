@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from './AuthProvider';
 
 function CreateUserAccount() {
   const navigate = useNavigate();
+  const { setAuth } = useContext(AuthContext);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -34,11 +36,13 @@ function CreateUserAccount() {
       }),
     });
     navigate('/login');
+    setAuth({});
     alert('Customer Account has been created');
   };
 
   const handleBack = () => {
     navigate('/login');
+    setAuth({});
   };
 
   return (
