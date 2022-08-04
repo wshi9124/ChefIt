@@ -1,5 +1,5 @@
 import { Modal,Button } from 'react-bootstrap';
-import { BsStar,BsStarFill,BsStarHalf } from 'react-icons/bs'
+import StarFill from '../../commonComponents/starfill';
 
 function MoreInfoPopup ({show,onHide,fullname="",user_comments}) {
     const filteredrating = user_comments.map(comment=> comment.rating).reduce((sum,ele) => sum + ele)
@@ -8,19 +8,6 @@ function MoreInfoPopup ({show,onHide,fullname="",user_comments}) {
     {starfill(review.rating)}
     </div>
     )
-    function starfill(iter) {
-      return (
-        <p className='star-review'>{[...Array(iter)].map((e,i) =>
-          <BsStarFill key={i}/> 
-              )
-              }
-              {!Number.isInteger(filteredrating) && filteredrating >= 0.5 ? <BsStarHalf/> && iter+1  : null} 
-              {
-              [...Array(5-iter)].map((e,i)=> <BsStar key={i}/>)
-              }
-          </p>
-      )
-    }
     return (
         <Modal
         show={show}
@@ -31,7 +18,8 @@ function MoreInfoPopup ({show,onHide,fullname="",user_comments}) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            <h2>{fullname} {starfill(filteredrating)}</h2>
+            <h2>{fullname} </h2>
+            <StarFill iter={filteredrating}/>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

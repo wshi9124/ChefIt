@@ -244,8 +244,10 @@ Side Drop Bar
     margin: 5px auto;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
     font-weight: 600;
+    padding: 0 5px;
 }
 .badge {
     padding: 3px;
@@ -312,6 +314,9 @@ Side Drop Bar
   justify-content: center;
   align-items: center;
 }
+.gap {
+  gap: 5px;
+}
 
 .star-review {
   color: #FFD700;
@@ -321,6 +326,13 @@ Side Drop Bar
   padding-top: 5%;
   border-bottom: 0.5px solid rgb(211, 211, 211);
 
+}
+
+.request-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:4px;
 }
 
 .editProfileInputs {
