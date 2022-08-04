@@ -42,6 +42,7 @@ function Login() {
           setUser('');
           setPassword('');
         }
+        console.log(auth);
       });
   };
 

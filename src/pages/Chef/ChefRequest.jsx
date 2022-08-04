@@ -66,9 +66,6 @@ function ChefRequest() {
         </table>
       </div>
     </div>
-  //   </div>
-  // </div>
-
   );
 }
 

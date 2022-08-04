@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from './AuthProvider';
 
 function CreateChefAccount() {
   const navigate = useNavigate();
+  const { setAuth } = useContext(AuthContext);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -35,11 +37,13 @@ function CreateChefAccount() {
       }),
     });
     navigate('/login');
+    setAuth({});
     alert('Chef account has been created');
   };
 
   const handleBack = () => {
     navigate('/login');
+    setAuth({});
   };
 
   return (
