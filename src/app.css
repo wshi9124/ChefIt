@@ -396,3 +396,8 @@ Side Drop Bar
     color: rgba(0, 0, 0, .1);
   }
 }
+
+.errorMessage {
+  color: red;
+  text-align: center;
+}
