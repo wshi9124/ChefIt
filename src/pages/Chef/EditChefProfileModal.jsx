@@ -140,7 +140,7 @@ function EditChefProfileModal({ auth }) {
               />
             </div>
             <p />
-            <Button type="submit" onClick={handleSubmit}>Save</Button>
+            <Button type="submit">Save</Button>
           </Modal.Body>
         </Modal>
       </form>
