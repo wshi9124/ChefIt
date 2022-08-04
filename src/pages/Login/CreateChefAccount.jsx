@@ -188,18 +188,6 @@ function CreateChefAccount() {
             required
           />
         </div>
-        <div className="mb-3">
-          <label className="form-label">Price:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="price"
-            placeholder="Price"
-            value={Price}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </div>
         <button type="submit" className="btn btn-primary btn-lg btn-block">
           Create Account
         </button>

@@ -15,40 +15,35 @@ function EditChefProfileModal({ auth }) {
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
 
+  const { id } = auth;
 
-  let id = auth.id
-
-  console.log(id)
+  console.log(id);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    let newData = {phone, email, price, longitude, latitude}
+    const newData = {
+      phone, email, price, longitude, latitude,
+    };
 
-    console.log(newData)
+    console.log(newData);
 
-    fetch('http://localhost:9292/chef/editprofile/'+id, {
-  method: 'PATCH',
-  body: JSON.stringify({
-    phone,
-    email,
-    longitude,
-    latitude,
-    chef_price: price
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setPrice(updatedInfo.price), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude)
-    );
-
+    fetch(`http://localhost:9292/chef/editprofile/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        phone,
+        email,
+        longitude,
+        latitude,
+        chef_price: price,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setPrice(updatedInfo.price), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude));
   }
-
-
-
-
 
   const handlePhone = (e) => {
     setPhone(e.target.value);
@@ -145,7 +140,7 @@ function EditChefProfileModal({ auth }) {
               />
             </div>
             <p />
-            <Button type='submit' onClick={handleSubmit}>Save</Button>
+            <Button type="submit" onClick={handleSubmit}>Save</Button>
           </Modal.Body>
         </Modal>
       </form>
