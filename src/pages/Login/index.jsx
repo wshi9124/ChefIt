@@ -8,9 +8,7 @@ import CreateAccountModal from './CreateAccountModal';
 function Login() {
   const navigate = useNavigate();
 
-  const {
-    auth, setAuth, setIsCustomerLogOn, setIsChefLog,
-  } = useContext(AuthContext);
+  const { setAuth, setIsCustomerLogOn, setIsChefLog } = useContext(AuthContext);
   const userRef = useRef();
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');

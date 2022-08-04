@@ -1,4 +1,5 @@
-import { Navigate, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import StarFill from '../../commonComponents/starfill';
 
 const image = 'https://idea7.co.uk/wp-content/uploads/2021/02/placeholder-250x250-1.png';

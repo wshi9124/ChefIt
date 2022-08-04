@@ -1,3 +1,4 @@
+import React from 'react';
 import ChefCard from './ChefCard';
 
 function SideBar({ isOpen, toggleSidebar, chefData }) {
@@ -7,7 +8,7 @@ function SideBar({ isOpen, toggleSidebar, chefData }) {
   const sidebuttonClass = isOpen ? 'sidebar-toggle sidebar-button-shadow' : 'sidebar-toggle sidebar-closed-button sidebar-button-shadow';
   return (
     <div className={sidebarClass}>
-      <button onClick={toggleSidebar} className={sidebuttonClass}>
+      <button type="button" onClick={toggleSidebar} className={sidebuttonClass}>
         {isOpen ? (
           <h1>
             {'<'}
