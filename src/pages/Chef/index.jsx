@@ -35,6 +35,7 @@ function Chef() {
             </div>
           </div>
       </div>
+      <AddPictureModal/>
       <ProfilePosts />
     </>
   );

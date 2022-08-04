@@ -39,7 +39,6 @@ function ProfilePosts() {
     return (
         <div id="grid-profile">
             {postslist}
-        <button></button>
         </div>
     )
 }
