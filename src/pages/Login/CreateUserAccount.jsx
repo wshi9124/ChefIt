@@ -54,7 +54,7 @@ function CreateUserAccount() {
       <form action="" className="mt-5 border p-4 bg-light shadow" onSubmit={handleSubmit}>
         <h4 className="mb-5 text">Create Customer Account</h4>
         <div className="mb-3">
-          <label className="form-label"> First Name:</label>
+          <label className="form-label" htmlFor="fName"> First Name:</label>
           <input
             type="text"
             className="form-control"
@@ -66,7 +66,7 @@ function CreateUserAccount() {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Last Name:</label>
+          <label className="form-label" htmlFor="lName">Last Name:</label>
           <input
             type="text"
             className="form-control"
@@ -78,7 +78,7 @@ function CreateUserAccount() {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label"> Email:</label>
+          <label className="form-label" htmlFor="email"> Email:</label>
           <input
             type="text"
             className="form-control"
@@ -133,7 +133,7 @@ function CreateUserAccount() {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label"> Phone:</label>
+          <label className="form-label" htmlFor="phone"> Phone:</label>
           <input
             type="text"
             className="form-control"

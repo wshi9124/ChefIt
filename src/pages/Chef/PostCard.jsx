@@ -8,9 +8,9 @@ function PostCard({
   }
   return (
     <div>
-      <img src={img} />
+      <img src={img} alt="PostCardImage" />
       <p>{name}</p>
-      <button onClick={handledelete}>Delete</button>
+      <button type="button" onClick={handledelete}>Delete</button>
     </div>
   );
 }
