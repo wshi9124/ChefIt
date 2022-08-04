@@ -8,6 +8,17 @@ function UserRequest() {
     <div>
       <Logo />
       <UserNavBar />
+      <div>
+        <h1>User Profile</h1>
+        <p>Username</p>
+        <p>Image</p>
+        <p>First Name</p>
+        <p>Last Name</p>
+        <p>Phone</p>
+        <p>Email</p>
+        <p>Longitude</p>
+        <p>Latitude</p>
+      </div>
       <LogOutButton />
     </div>
   );

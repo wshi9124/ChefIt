@@ -25,7 +25,7 @@ function Login() {
     setErrorMessage('');
   }, [user, password]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`http://localhost:9292/${accountType.toLowerCase()}/login?username=${user}&password=${password}`)
       .then((response) => response.json())
@@ -42,9 +42,9 @@ function Login() {
           setUser('');
           setPassword('');
         }
-        console.log(auth);
       });
   };
+  console.log(auth);
 
   return (
     <section className="login">
