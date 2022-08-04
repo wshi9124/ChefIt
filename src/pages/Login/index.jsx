@@ -10,8 +10,6 @@ function Login() {
 
   const { auth, setAuth } = useContext(AuthContext);
   const userRef = useRef();
-  const errRef = useRef();
-
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [accountType, setAccountType] = useState('customer');
@@ -21,16 +19,11 @@ function Login() {
     userRef.current.focus();
   }, []);
 
-  useEffect(() => {
-    setErrorMessage('');
-  }, [user, password]);
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`http://localhost:9292/${accountType.toLowerCase()}/login?username=${user}&password=${password}`)
       .then((response) => response.json())
       .then((userInfo) => {
-        console.log(userInfo);
         if (userInfo.success === true && accountType === 'customer') {
           setAuth(userInfo.data);
           navigate('/user');
@@ -42,17 +35,18 @@ function Login() {
           setUser('');
           setPassword('');
         }
-        console.log(auth);
       });
   };
 
   return (
-    <section className="login">
+    <section className="login" onClick={() => setErrorMessage('')}>
       <div className="login-form">
         <div>
           <div className="login-img">
             <img src="images/chefitlogo.png" alt="chef it logo" className="login-logo" />
-            <p ref={errRef} className={errorMessage ? 'errorMessage' : 'offscreen'} aria-live="assertive">{errorMessage}</p>
+            <p className={errorMessage ? 'errorMessage' : 'offscreen'}>
+              {errorMessage}
+            </p>
             <h1 className="loginHeader">Chef It</h1>
             <h2 className="loginHeader">Why cook, when you can chef it!</h2>
             <form onSubmit={handleSubmit}>

@@ -3,11 +3,10 @@ import { Marker, InfoWindow } from '@react-google-maps/api';
 import { NavLink } from 'react-router-dom';
 
 function OneMarker({ markerCenter, chef = {} }) {
-
   const [isOpen, setOpen] = useState(false);
 
   function handleOpen() {
-    markerCenter(chef)
+    markerCenter(chef);
     setOpen(true);
   }
   return (
@@ -19,7 +18,7 @@ function OneMarker({ markerCenter, chef = {} }) {
         ? (
           <InfoWindow onCloseClick={() => setOpen(false)}>
             <>
-            <NavLink style={{textDecoration:"none",color:"black"}} to ={"/viewchef"}>
+              <NavLink style={{ textDecoration: 'none', color: 'black' }} to="/viewchef">
                 <h1>{ `${chef.first_name} ${chef.last_name}`}</h1>
                 <p>
                   {' '}

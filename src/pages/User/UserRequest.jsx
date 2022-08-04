@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Logo from '../../commonComponents/Logo';
 import UserNavBar from './UserNavBar';
-import { useEffect } from 'react';
-import {useState} from 'react';
+import AuthContext from '../Login/AuthProvider';
+import LogOutButton from '../../commonComponents/LogOutButton';
 
 function UserRequest() {
+  const { auth } = useContext(AuthContext);
   const [modalShow, setModalShow] = React.useState(false);
   const [requests, setRequests] = useState([]);
 
@@ -15,56 +16,38 @@ function UserRequest() {
         setRequests(jsonResult);
       });
   }, []);
+  console.log(auth.first_name);
 
   return (
     <div>
       <Logo />
       <UserNavBar />
-      <h1 className="myrequesttext"> My Requests </h1>
-      <p />
-      {/* <div className='image-overlay-container'>
-
-        <img className='rounded-image' src = "https://i.pinimg.com/originals/6b/e1/84/6be1847b56e3832a614699142d1e09d8.jpg" width="600" height="400"/>
-        <div className='text-overlay-container'>   */}
-      <div className="requestContainer">
-        {/* <div className='requestHolder'></div> */}
-        <table className="table">
-          <thead className="th">
-            <tr className="tr">
-              <th className="th">Request Date</th>
-              <th className="th">Status</th>
-              <th className="th">Created At</th>
-              <th className="th">Chef</th>
-            </tr>
-          </thead>
-          <tbody>
-            {requests.map((item) => (
-              <tr key={item.id}>
-                <td className="td">
-                  {
-                                new Date(item.request_date).toLocaleString('en-US', { timeZone: 'EST' })
-                              }
-                </td>
-                <td style={{ color: item.status === 'Declined' ? 'red' : 'green' }} className="td">{item.status}</td>
-                <td className="td">
-                  {
-                                new Date(item.created_at).toLocaleString('en-US', { timeZone: 'EST' })
-                              }
-                </td>
-                <td className="td">
-                  {`${item.chef.first_name} ${item.chef.last_name}`}
-                  <button type="button" onClick={() => setModalShow(true)}>More</button>
-                  <MoreInfoPopup
-                    show={modalShow}
-                    fullname={`${item.chef.first_name} ${item.chef.last_name}`}
-                    user_comments={item.chef.user_comments}
-                    onHide={() => setModalShow(false)}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <LogOutButton />
+      <div>
+        <h1>User Profile</h1>
+        <p>Username</p>
+        <p>{auth.username}</p>
+        <p>Image</p>
+        <p>Full Name</p>
+        <p>
+          {auth.first_name}
+          {' '}
+          {auth.last_name}
+        </p>
+        <p>Phone</p>
+        <p>{auth.phone}</p>
+        <p>Email</p>
+        <p>{auth.email}</p>
+        <p>Location</p>
+        <p>
+          latitude
+          {' '}
+          {auth.latitude}
+          {' '}
+          longitude
+          {' '}
+          {auth.longitude}
+        </p>
       </div>
     </div>
   );
