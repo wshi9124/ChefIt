@@ -11,7 +11,6 @@ function RequestModal({show,onHide,fullName}) {
     let today = new Date().toLocaleString()
     
     const [calInput,setCal] = useState(today)
-    const [success,setSuccess] = useState(false)
     const [request, setRequest] = useState([])
 
     useEffect(()=> {
@@ -25,7 +24,7 @@ function RequestModal({show,onHide,fullName}) {
         body: JSON.stringify({
         datetime: calInput
         }),
-      }).then(resp=>resp.json()).then(()=>setSuccess(true))
+      }).then(resp=>resp.json()).then((newreq)=>setRequest([...request,newreq]))
     }
 
     const requestList = request.map(r=><div className="info-popup-item gap"key={r.id}>
@@ -52,7 +51,6 @@ function RequestModal({show,onHide,fullName}) {
             <form onSubmit={handleSubmit}>
             <input onChange={(e)=>setCal(e.target.value)} value={calInput} type="datetime-local"/>
             <input type="submit"/>
-            {success ? "Success" : null}
             </form>
             {requestList}
           </div>

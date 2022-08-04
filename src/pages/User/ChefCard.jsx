@@ -20,8 +20,8 @@ function ChefCard({ chefcardinfo }) {
           0
           {' '}
         </p>
-        {chefcardinfo.cuisines.map(cuisine=><p className="badge" style={{ backgroundColor: 'green' }}>{cuisine.name}</p>)}
         <StarFill iter={chefcardinfo.avg_rating}/>
+          {chefcardinfo.cuisines.map(cuisine=><p className="badge" style={{ backgroundColor: 'green' }}>{cuisine.name}</p>)}
       </div>
     </div>
   );
