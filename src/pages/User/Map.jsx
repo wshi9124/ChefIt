@@ -1,5 +1,5 @@
 import React, {
-  useMemo, useState, useRef, useCallback,
+  useMemo, useRef, useCallback,
 } from 'react';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import OneMarker from './Marker';

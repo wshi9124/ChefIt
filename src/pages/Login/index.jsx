@@ -43,7 +43,7 @@ function Login() {
   };
 
   return (
-    <section className="login" onClick={() => setErrorMessage('')}>
+    <section className="login" onClick={() => setErrorMessage('')} onKeyDown={() => setErrorMessage('')}>
       <div className="login-form">
         <div>
           <div className="login-img">
