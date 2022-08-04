@@ -16,6 +16,7 @@ function UserRequest() {
         setRequests(jsonResult);
       });
   }, []);
+  console.log(auth.first_name);
 
   return (
     <div>
@@ -27,10 +28,12 @@ function UserRequest() {
         <p>Username</p>
         <p>{auth.username}</p>
         <p>Image</p>
-        <p>First Name</p>
-        <p>{auth.first_name}</p>
-        <p>Last Name</p>
-        <p>{auth.last_name}</p>
+        <p>Full Name</p>
+        <p>
+          {auth.first_name}
+          {' '}
+          {auth.last_name}
+        </p>
         <p>Phone</p>
         <p>{auth.phone}</p>
         <p>Email</p>
