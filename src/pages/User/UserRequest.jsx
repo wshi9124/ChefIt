@@ -3,6 +3,7 @@ import Logo from '../../commonComponents/Logo';
 import UserNavBar from './UserNavBar';
 import AuthContext from '../Login/AuthProvider';
 import LogOutButton from '../../commonComponents/LogOutButton';
+import UserEditInfo from './UserEditInfo';
 
 function UserRequest() {
   const { auth } = useContext(AuthContext);
