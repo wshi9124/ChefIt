@@ -12,11 +12,11 @@ function EditChefProfileModal() {
   const [longitude, setLongitude] = useState(auth.longitude);
   const [latitude, setLatitude] = useState(auth.latitude);
   const [bio, setBio] = useState(auth.bio)
-  const [profPic, setProfPic] = useState(auth.profPic)
+  const [profPic, setProfPic] = useState(auth.prof_pic)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
- 
+ console.log(auth)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -36,7 +36,7 @@ function EditChefProfileModal() {
       },
     })
       .then((response) => response.json())
-      .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setPrice(updatedInfo.price), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setBio(updatedInfo.bio), setProfPic(updatedInfo.profPic));
+      .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setPrice(updatedInfo.price), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setBio(updatedInfo.bio), setProfPic(updatedInfo.prof_pic));
   }
 
   const handlePhone = (e) => {
@@ -57,6 +57,11 @@ function EditChefProfileModal() {
   const handleBio = (e) => {
     setBio(e.target.value);
   };
+
+  const handleProfPic = (e) => {
+    setProfPic(e.target.value)
+  }
+  
 
   return (
     <>
