@@ -5,6 +5,9 @@ import AuthContext from '../Login/AuthProvider';
 import LogOutButton from '../../commonComponents/LogOutButton';
 import UserEditInfo from './UserEditInfo';
 
+const img = 'https://media.istockphoto.com/photos/old-grunge-dark-textured-wooden-backgroundthe-surface-of-the-old-picture-id865432924?k=20&m=865432924&s=612x612&w=0&h=fCWAbNMq85WP8oWie-DtmZmDzJxV5c61rU9TmG2uPdk=';
+const placeholder = 'https://idea7.co.uk/wp-content/uploads/2021/02/placeholder-250x250-1.png';
+
 function UserRequest() {
   const { auth } = useContext(AuthContext);
 
@@ -13,33 +16,34 @@ function UserRequest() {
       <Logo />
       <UserNavBar />
       <LogOutButton />
-      <div>
-        <h1>User Profile</h1>
-        <UserEditInfo auth={auth}/>
-        <p>Username</p>
-        <p>{auth.username}</p>
-        <p>Image</p>
-        <p>Full Name</p>
-        <p>
-          {auth.first_name}
-          {' '}
-          {auth.last_name}
-        </p>
-        <p>Phone</p>
-        <p>{auth.phone}</p>
-        <p>Email</p>
-        <p>{auth.email}</p>
-        <p>Location</p>
-        <p>
-          latitude
-          {' '}
-          {auth.latitude}
-          {' '}
-          longitude
-          {' '}
-          {auth.longitude}
-        </p>
+      <div className="center-flex huge-gap">
+        <img className="outer-profile-placement" width="350px" height="350px" src={img} />
+        <div className="content-card">
+          <div className="card">
+            <div className="firstinfo">
+              <div className="profile-image-container">
+                <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+              </div>
+              <div className="profileinfo">
+                <h1>
+                  <div className="center-flex">
+                    {`${auth.first_name} ${auth.last_name}`}
+                    <UserEditInfo auth={auth} />
+                  </div>
+                </h1>
+                <h3>{auth.username}</h3>
+                <p>{`${auth.email} ${auth.phone}`}</p>
+                <p className="bio">
+                  {auth.bio}
+                  {' '}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img className="outer-profile-placement" width="350px" height="350px" src={img} />
       </div>
+      <hr />
     </div>
   );
 }

@@ -4,26 +4,23 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import AuthContext from '../Login/AuthProvider';
 
-function UserEditInfo({ auth }) {
+function UserEditInfo() {
+  const {auth} = useContext(AuthContext)
   const [show, setShow] = useState(false);
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [longitude, setLongitude] = useState('');
-  const [latitude, setLatitude] = useState('');
+  const [phone, setPhone] = useState(auth.phone);
+  const [email, setEmail] = useState(auth.email);
+  const [longitude, setLongitude] = useState(auth.longitude);
+  const [latitude, setLatitude] = useState(auth.latitude);
+  const [profPic, setProfPic] = useState(auth.profPic)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
 
-  let id = auth.id
+ 
 
-  console.log(id)
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    let newData = {phone, email, longitude, latitude}
-
-    console.log(newData)
 
     fetch('http://localhost:9292/user/editprofile/'+id, {
   method: 'PATCH',
@@ -32,13 +29,14 @@ function UserEditInfo({ auth }) {
     email,
     longitude,
     latitude,
+    prof_pic: profPic
   }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
 })
   .then((response) => response.json())
-  .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude)
+  .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setProfPic(updatedInfo.profPic)
     );
 
   }
@@ -56,6 +54,9 @@ function UserEditInfo({ auth }) {
   const handleLatitude = (e) => {
     setLatitude(e.target.value);
   };
+  const handleProfPic = (e) => {
+    setProfPic(e.target.value)
+  }
 
   return (
     <div>
@@ -95,6 +96,19 @@ function UserEditInfo({ auth }) {
                 placeholder="Email"
                 value={email}
                 onChange={handleEmail}
+              />
+            </div>
+            <div className="editProfileInputs">
+              <label classname='form-label' htmlFor="email">
+                Profile Picture:
+              </label>
+              <input
+                type="text"
+                className="modal-edit-control"
+                id="email"
+                placeholder="Email"
+                value={profPic}
+                onChange={handleProfPic}
               />
             </div>
             <div className="editProfileInputs">
