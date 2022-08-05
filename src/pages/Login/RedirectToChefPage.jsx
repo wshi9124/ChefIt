@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../commonComponents/Logo';
 
 function RedirectToChef() {
   const navigate = useNavigate();
 
-  const navigateToLogin = () => {
-    navigate('/chef');
-  };
-  setTimeout(navigateToLogin, 2000);
+  useEffect(() => {
+    const navigateToChef = () => {
+      navigate('/chef');
+    };
+    const timeOut = setTimeout(navigateToChef, 2000);
+    return () => clearTimeout(timeOut);
+  }, []);
 
   return (
     <>

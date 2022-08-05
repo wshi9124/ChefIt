@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../commonComponents/Logo';
 
 function RedirectToUser() {
   const navigate = useNavigate();
 
-  const navigateToLogin = () => {
-    navigate('/user');
-  };
-  setTimeout(navigateToLogin, 2000);
+  useEffect(() => {
+    const navigateToUser = () => {
+      navigate('/user');
+    };
+    const timeOut = setTimeout(navigateToUser, 2000);
+    return () => clearTimeout(timeOut);
+  }, []);
 
   return (
     <>
