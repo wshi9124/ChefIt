@@ -8,7 +8,7 @@ export function AuthProvider({ children }) {
   const [isChefLogOn, setIsChefLog] = useState(false);
 
   useEffect(() => {
-    setAuth(localStorage.getItem('authLocalStorage'));
+    setAuth(JSON.parse(localStorage.getItem('authLocalStorage')));
     setIsCustomerLogOn(JSON.parse(localStorage.getItem('isCustomerStorage')));
     setIsChefLog(JSON.parse(localStorage.getItem('isChefStorage')));
   }, []);
