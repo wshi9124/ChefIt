@@ -1,7 +1,7 @@
 import React from 'react';
 import ChefCard from './ChefCard';
 
-function SideBar({ isOpen, toggleSidebar, chefData }) {
+function SideBar({ isOpen, toggleSidebar, chefData=[] }) {
   console.log(chefData);
   const chefInfoList = chefData.map((chefcardinfo) => <ChefCard key={chefcardinfo.id} chefcardinfo={chefcardinfo} />);
   const sidebarClass = isOpen ? 'sidebar open' : 'sidebar';
