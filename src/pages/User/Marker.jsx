@@ -10,25 +10,20 @@ function OneMarker({ markerCenter, chef = {} }) {
     setOpen(true);
   }
   return (
-    <Marker
-      onClick={handleOpen}
-      position={{ lat: chef.latitude, lng: chef.longitude }}
-    >
+    <Marker onClick={handleOpen} position={{ lat: chef.latitude, lng: chef.longitude }}>
       { isOpen
         ? (
           <InfoWindow onCloseClick={() => setOpen(false)}>
-            <>
-              <NavLink style={{ textDecoration: 'none', color: 'black' }} to="/viewchef">
-                <h1>{ `${chef.first_name} ${chef.last_name}`}</h1>
-                <p>
-                  {' '}
-                  $
-                  {chef.chef_price}
-                  0
-                </p>
-                <p>{chef.email}</p>
-              </NavLink>
-            </>
+            <NavLink style={{ textDecoration: 'none', color: 'black' }} to="/viewchef">
+              <h1>{ `${chef.first_name} ${chef.last_name}`}</h1>
+              <p>
+                {' '}
+                $
+                {chef.chef_price}
+                0
+              </p>
+              <p>{chef.email}</p>
+            </NavLink>
           </InfoWindow>
         )
         : null }
