@@ -8,12 +8,10 @@ function UserEditInfo({ auth }) {
   const [show, setShow] = useState(false);
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [price, setPrice] = useState('');
   const [longitude, setLongitude] = useState('');
   const [latitude, setLatitude] = useState('');
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
 
 
   let id = auth.id
@@ -23,7 +21,7 @@ function UserEditInfo({ auth }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    let newData = {phone, email, price, longitude, latitude}
+    let newData = {phone, email, longitude, latitude}
 
     console.log(newData)
 
@@ -40,7 +38,7 @@ function UserEditInfo({ auth }) {
   },
 })
   .then((response) => response.json())
-  .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setPrice(updatedInfo.price), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude)
+  .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude)
     );
 
   }
@@ -51,9 +49,6 @@ function UserEditInfo({ auth }) {
   };
   const handleEmail = (e) => {
     setEmail(e.target.value);
-  };
-  const handlePrice = (e) => {
-    setPrice(e.target.value);
   };
   const handleLongitude = (e) => {
     setLongitude(e.target.value);
@@ -99,19 +94,6 @@ function UserEditInfo({ auth }) {
                 placeholder="Email"
                 value={email}
                 onChange={handleEmail}
-              />
-            </div>
-            <div className="editProfileInputs">
-              <label htmlFor="price">
-                Price:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="price"
-                placeholder="Price"
-                value={price}
-                onChange={handlePrice}
               />
             </div>
             <div className="editProfileInputs">

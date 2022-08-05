@@ -15,6 +15,7 @@ function UserRequest() {
       <LogOutButton />
       <div>
         <h1>User Profile</h1>
+        <UserEditInfo auth={auth}/>
         <p>Username</p>
         <p>{auth.username}</p>
         <p>Image</p>
