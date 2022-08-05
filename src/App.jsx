@@ -16,6 +16,7 @@ import RedirectToLogin from './pages/Login/RedirectToLogin';
 import './app.css';
 
 function App() {
+
   const { isCustomerLogOn, isChefLogOn } = useContext(AuthContext);
   if (isCustomerLogOn) {
     return (
@@ -23,7 +24,7 @@ function App() {
         <Route path="/" element={<User />} />
         <Route path="/user" element={<User />} />
         <Route path="/userrequests" element={<UserRequest />} />
-        <Route path="/viewchef" element={<ViewChef />} />
+        <Route path="/viewchef/:chefId" element={<ViewChef />} />
         <Route path="*" element={<RedirectToUser />} />
       </Routes>
     );

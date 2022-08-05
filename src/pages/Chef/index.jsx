@@ -14,7 +14,7 @@ const deleteHeader = {
 };
 
 const img = 'https://media.istockphoto.com/photos/old-grunge-dark-textured-wooden-backgroundthe-surface-of-the-old-picture-id865432924?k=20&m=865432924&s=612x612&w=0&h=fCWAbNMq85WP8oWie-DtmZmDzJxV5c61rU9TmG2uPdk=';
-const placeholder = 'https://idea7.co.uk/wp-content/uploads/2021/02/placeholder-250x250-1.png';
+
 function Chef() {
   const { auth } = useContext(AuthContext);
 
@@ -37,6 +37,7 @@ useEffect(()=> {
   function handleDeletePost(id) {
     const deletePost = posts.filter(post => post.id !== id)
     setPosts(deletePost)
+    console.log(id)
     fetch("http://localhost:9292/posts/"+id,{...deleteHeader})
   }
   return (
@@ -54,7 +55,7 @@ useEffect(()=> {
           <div className="profileinfo">
             <h1><div className='center-flex'>{`${auth.first_name} ${auth.last_name}`}
               <AddPictureModal handleSetPost={handleSetPost} id={auth.id}/>
-              <EditChefProfileModal auth={auth}/></div></h1>
+              <EditChefProfileModal/></div></h1>
             <h3>{auth.username}</h3>
             <p>{`${auth.email} ${auth.phone}`}</p>
             <p className="bio">{auth.bio} </p>

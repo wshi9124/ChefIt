@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../../commonComponents/Logo';
 import RequestModal from './requestmodal';
+import { useParams } from 'react-router-dom';
 
 function ViewChef() {
   const [info, setInfo] = useState([]);
-
+  const chefId = useParams()
   const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:9292/chef/1')
+    fetch('http://localhost:9292/chef/'+chefId.chefId)
       .then((res) => res.json())
       .then((infoData) => {
         setInfo(infoData);
@@ -52,7 +53,7 @@ function ViewChef() {
               <p>{info.chef_price}</p>
             </div>
           </div>
-          <button type="button" onClick={() => setModalShow(true)}>More</button>
+          <button type="button"onClick={() => setModalShow(true)}>More</button>
           <RequestModal
             fullName={`${info.first_name} ${info.last_name}`}
             show={modalShow}

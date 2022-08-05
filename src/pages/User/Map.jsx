@@ -41,7 +41,7 @@ function Map({
   //   const
   // }
 
-  console.log(navigator.geolocation);
+  // console.log(navigator.geolocation);
   const onLoad = useCallback((map) => (mapRef.current = map), []);
 
   function markerCenter(chef) {

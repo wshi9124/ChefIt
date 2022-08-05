@@ -366,6 +366,9 @@ Side Drop Bar
   padding: 0.5% 5%;
   height: max-content;
 }
+.change-z {
+  z-index: 5;
+}
 .rounded-image {
   border-radius: 50%;
   object-fit: fill;

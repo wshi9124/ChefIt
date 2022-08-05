@@ -14,7 +14,7 @@ function OneMarker({ markerCenter, chef = {} }) {
       { isOpen
         ? (
           <InfoWindow onCloseClick={() => setOpen(false)}>
-            <NavLink style={{ textDecoration: 'none', color: 'black' }} to="/viewchef">
+            <NavLink style={{ textDecoration: 'none', color: 'black' }} to={"/viewchef/"+chef.id}>
               <h1>{ `${chef.first_name} ${chef.last_name}`}</h1>
               <p>
                 {' '}
