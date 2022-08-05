@@ -62,89 +62,86 @@ function EditChefProfileModal({ auth }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="info-Change-Form">
-        <div className="editButtonHolder">
-          <Button variant="dark" onClick={handleShow}>
-            Edit
-          </Button>
-        </div>
+    <>
+      <Button variant="dark" onClick={handleShow}>
+        Edit
+      </Button>
         <Modal show={show} onHide={handleClose} centered>
           <Modal.Header closeButton>
             <Modal.Title>Edit Your Info</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="editProfileInputs">
-              <label htmlFor="phoneNumber">
-                Phone:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="phone-number"
-                placeholder="Phone Number"
-                value={phone}
-                onChange={handlePhone}
-              />
-            </div>
-            <div className="editProfileInputs">
-              <label htmlFor="email">
-                Email:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="email"
-                placeholder="Email"
-                value={email}
-                onChange={handleEmail}
-              />
-            </div>
-            <div className="editProfileInputs">
-              <label htmlFor="price">
-                Price:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="price"
-                placeholder="Price"
-                value={price}
-                onChange={handlePrice}
-              />
-            </div>
-            <div className="editProfileInputs">
-              <label htmlFor="longitude">
-                Longitude:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="longitude"
-                placeholder="Longitude"
-                value={longitude}
-                onChange={handleLongitude}
-              />
-            </div>
-            <div className="editProfileInputs">
-              <label htmlFor="latitude">
-                Latitude:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="latitude"
-                placeholder="latitude"
-                value={latitude}
-                onChange={handleLatitude}
-              />
-            </div>
-            <p />
+            <form onSubmit={handleSubmit}>
+              <div className="editProfileInputs">
+                <label htmlFor="phoneNumber">
+                  Phone:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="phone-number"
+                  placeholder="Phone Number"
+                  value={phone}
+                  onChange={handlePhone}
+                />
+              </div>
+              <div className="editProfileInputs">
+                <label htmlFor="email">
+                  Email:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={handleEmail}
+                />
+              </div>
+              <div className="editProfileInputs">
+                <label htmlFor="price">
+                  Price:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="price"
+                  placeholder="Price"
+                  value={price}
+                  onChange={handlePrice}
+                />
+              </div>
+              <div className="editProfileInputs">
+                <label htmlFor="longitude">
+                  Longitude:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="longitude"
+                  placeholder="Longitude"
+                  value={longitude}
+                  onChange={handleLongitude}
+                />
+              </div>
+              <div className="editProfileInputs">
+                <label htmlFor="latitude">
+                  Latitude:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="latitude"
+                  placeholder="latitude"
+                  value={latitude}
+                  onChange={handleLatitude}
+                />
+              </div>
+              </form>
             <Button type="submit" onClick={handleSubmit}>Save</Button>
           </Modal.Body>
         </Modal>
-      </form>
-    </div>
+    </>
   );
 }
 

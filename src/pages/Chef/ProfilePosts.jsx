@@ -22,12 +22,12 @@ function ProfilePosts({id}) {
         fetch("http://localhost:9292/posts/"+id).then(resp=>resp.json()).then(setPosts)
     },[])
 
-    function handleSubmit() {
-        fetch("http://localhost:9292/posts/1",{...postHeader,
-            body:JSON.stringify()})
-            .then(resp=>resp.json()).then(data=>setPosts([...posts,data]))
+    // function handleSubmit() {
+    //     fetch("http://localhost:9292/posts/"+id,{...postHeader,
+    //         body:JSON.stringify()})
+    //         .then(resp=>resp.json()).then(data=>setPosts([...posts,data]))
 
-    }
+    // }
     function deleteCallback(id) {
         const deletePost = posts.filter(post => post.id !== id)
         setPosts(deletePost)
