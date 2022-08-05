@@ -4,6 +4,9 @@
     padding: 0;
     overflow: hidden;
 }
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 .logo-container {
     background-color: #496EBD;
     font-family: Impact, fantasy;
@@ -85,8 +88,8 @@
 }
 .image-overlay-container {
   position: relative;
-  width: 310px;
-  height: 310px;
+  width: 600px;
+  height: 350px;
   margin: 0 33%;
 }
 .table {
@@ -257,7 +260,7 @@ Side Drop Bar
   margin: 10px auto;
   display: grid;
   grid-template-columns: auto auto auto auto;
-  gap: 10px 20px;
+  gap: 20px 20px;
   max-width: fit-content;
 
 }
@@ -357,17 +360,25 @@ Side Drop Bar
 .large-gap {
   gap:15px;
 }
+.outer-profile-placement {
+  margin-top: 20px;
+  padding: 5px;
+  object-fit: cover;
+  border-radius: 5px;
+}
 .header-info-card {
   background-color: #0093E9;
   background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-  width: 100%;
+  width: 600px;
   height: 200px;
   z-index: 5;
 }
 .star-review {
   color: #FFD700;
 }
-  
+.huge-gap {
+  gap:30px;
+}
 .infoText {
   padding-top: 5%;
   border-bottom: 0.5px solid rgb(211, 211, 211);
@@ -458,4 +469,125 @@ Side Drop Bar
 .errorMessage {
   color: red;
   text-align: center;
+}
+.card {
+  width: 500px;
+  min-height: 100px;
+  padding: 20px;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.card:after {
+  content: "";
+  display: block;
+  width: 190px;
+  height: 300px;
+  background: cadetblue;
+  position: absolute;
+  animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
+}
+.firstinfo {
+  flex-direction: row;
+  z-index: 2;
+  position: relative;
+}
+.firstinfo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.profile-image-container {
+  object-fit: cover;
+}
+.firstinfo .profileinfo {
+  padding: 0px 20px;
+}
+.firstinfo .profileinfo h1 {
+  font-size: 1.8em;
+}
+.content-card {
+  position: relative;
+  animation: animatop 0.9s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
+}
+.firstinfo .profileinfo h3 {
+  font-size: 1.2em;
+  color: #009688;
+  font-style: italic;
+}
+/* .button-div {
+  
+} */
+.firstinfo .profileinfo p.bio {
+  padding: 10px 0px;
+  color: #5a5a5a;
+  line-height: 1.2;
+  font-style: initial;
+}
+.badgescard {
+  padding: 10px 20px;
+  border-radius: 3px;
+  background-color: #ECECEC;
+  width: 480px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: -1;
+  left: 10px;
+  bottom: 10px;
+  animation: animainfos 0.5s cubic-bezier(0.425, 1.04, 0.47, 1.105) 0.75s forwards;
+}
+.badgescard span {
+  font-size: 1.6em;
+  margin: 0px 6px;
+  opacity: 0.6;
+}
+.firstinfo, .badgescard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-displace {
+  text-align: center;
+}
+
+@keyframes animatop {
+  0% {
+    opacity: 0;
+    bottom: -500px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@keyframes animainfos {
+  0% {
+    bottom: 10px;
+  }
+  100% {
+    bottom: -42px;
+  }
+}
+@keyframes buttontrans {
+  0% {
+    bottom: 15px;
+  }
+  100% {
+    bottom: -30px;
+  }
+}
+@keyframes rotatemagic {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+    top: -24px;
+    left: -253px;
+  }
+  100% {
+    transform: rotate(-30deg);
+    top: -24px;
+    left: -78px;
+  }
 }

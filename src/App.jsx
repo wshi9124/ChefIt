@@ -9,6 +9,8 @@ import CreateChefAccount from './pages/Login/CreateChefAccount';
 import UserRequest from './pages/User/UserRequest';
 import ChefRequest from './pages/Chef/ChefRequest';
 import ViewChef from './pages/User/viewchef';
+import RedirectToUser from './pages/Login/RedirectToUserpage';
+import RedirectToChef from './pages/Login/RedirectToChefPage';
 import RedirectToLogin from './pages/Login/RedirectToLogin';
 
 import './app.css';
@@ -18,27 +20,21 @@ function App() {
   if (isCustomerLogOn) {
     return (
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/customersignup" element={<CreateUserAccount />} />
-        <Route path="/chefsignup" element={<CreateChefAccount />} />
+        <Route path="/" element={<User />} />
         <Route path="/user" element={<User />} />
         <Route path="/userrequests" element={<UserRequest />} />
         <Route path="/viewchef" element={<ViewChef />} />
-        <Route path="*" element={<RedirectToLogin />} />
+        <Route path="*" element={<RedirectToUser />} />
       </Routes>
     );
   }
   if (isChefLogOn) {
     return (
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/customersignup" element={<CreateUserAccount />} />
-        <Route path="/chefsignup" element={<CreateChefAccount />} />
+        <Route path="/" element={<Chef />} />
         <Route path="/chef" element={<Chef />} />
         <Route path="/chefrequests" element={<ChefRequest />} />
-        <Route path="*" element={<RedirectToLogin />} />
+        <Route path="*" element={<RedirectToChef />} />
       </Routes>
     );
   }

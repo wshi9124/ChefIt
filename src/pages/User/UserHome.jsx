@@ -35,7 +35,7 @@ function UserHome() {
       });
   }, []);
 
-  const filterChef = !text ? text : searchChef.filter((chef) => {
+  const filterChef = !text ? chefData : searchChef.filter((chef) => {
     for (const attr in chef) {
       if (chef[attr]) {
         if (chef[attr].toString().includes(text)) return true;
