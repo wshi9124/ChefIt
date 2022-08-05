@@ -549,6 +549,7 @@ Side Drop Bar
   align-items: center;
 }
 .button-displace {
+  display: block;
   text-align: center;
 }
 

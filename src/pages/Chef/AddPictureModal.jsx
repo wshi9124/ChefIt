@@ -8,7 +8,7 @@ const postHeader = {
     "Content-Type": "application/json",
   }
 }
-function AddPictureModal({id}) {
+function AddPictureModal({id,handleSetPost}) {
 
   console.log(id)
   const [show, setShow] = useState(false);
@@ -18,14 +18,15 @@ function AddPictureModal({id}) {
 
   const [dishName,setdishName] = useState("")
   const [imgLink,setimgLink] = useState("")
+
   function handleSubmit() {
-    console.log(dishName,imgLink)
-    fetch("http:/localhost:9292/posts/"+id,
-    {...postHeader,body:JSON.stringify(
+    fetch("http://localhost:9292/posts/"+id,
+    {...postHeader,body:JSON.stringify({
       dishName,
       imgLink
-    )}).then(data=>console.log(data))
+    })}).then(resp=>resp.json()).then(handleSetPost)
   }
+  
   return (  
     <>
       <Button variant="dark" onClick={handleShow}>
