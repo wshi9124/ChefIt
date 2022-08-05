@@ -282,6 +282,44 @@ Side Drop Bar
     border-radius: 3px;
 }
 
+.form-group{
+  transition: all .3s
+}
+
+.form-label {
+  font-size: 1em;
+  display: block;
+  opacity: 1;
+  transform: translateY(-1.25);
+  transform-origin: 0 0;
+  transition: all .3;
+}
+
+.modal-edit-control {
+  box-shadow: none;
+  border-radius: 0px;
+  border-style: none none solid none;
+  width: 100%;
+  transition: all .5s;
+}
+
+.modal-edit-control::placeholder {
+  color: transparent
+}
+
+.modal-edit-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: blue;
+}
+
+.modal-edit-control:focus + .form-label,
+.modal-edit-control:not(:placeholder-shown) + .form-label {
+  transform: translateY(-2.5em) scale(.8);
+
+}
+
+
 
 .searchbar {
     box-sizing: border-box;
