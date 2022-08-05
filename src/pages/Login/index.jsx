@@ -30,7 +30,7 @@ function Login() {
           localStorage.setItem('authLocalStorage', JSON.stringify(userInfo.data));
           localStorage.setItem('isCustomerStorage', 'true');
           localStorage.setItem('isChefStorage', 'false');
-          setAuth(localStorage.getItem('authLocalStorage'));
+          setAuth(JSON.parse(localStorage.getItem('authLocalStorage')));
           setIsCustomerLogOn(JSON.parse(localStorage.getItem('isCustomerStorage')));
           setIsChefLog(JSON.parse(localStorage.getItem('isChefStorage')));
           navigate('/user');
@@ -38,7 +38,7 @@ function Login() {
           localStorage.setItem('authLocalStorage', JSON.stringify(userInfo.data));
           localStorage.setItem('isCustomerStorage', 'false');
           localStorage.setItem('isChefStorage', 'true');
-          setAuth(localStorage.getItem('authLocalStorage'));
+          setAuth(JSON.parse(localStorage.getItem('authLocalStorage')));
           setIsCustomerLogOn(JSON.parse(localStorage.getItem('isCustomerStorage')));
           setIsChefLog(JSON.parse(localStorage.getItem('isChefStorage')));
           navigate('/chef');
