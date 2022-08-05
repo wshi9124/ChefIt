@@ -10,6 +10,7 @@ function LogOutButton() {
     setAuth({});
     setIsCustomerLogOn(false);
     setIsChefLog(false);
+    localStorage.clear();
     navigate('/login');
   };
 
