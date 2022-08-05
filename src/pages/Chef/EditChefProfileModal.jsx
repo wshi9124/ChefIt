@@ -4,23 +4,21 @@ import Modal from 'react-bootstrap/Modal';
 import AuthContext from '../Login/AuthProvider';
 
 function EditChefProfileModal() {
-  const {auth} = useContext(AuthContext)
+  const { auth } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [phone, setPhone] = useState(auth.phone);
   const [email, setEmail] = useState(auth.email);
   const [price, setPrice] = useState(auth.price);
   const [longitude, setLongitude] = useState(auth.longitude);
   const [latitude, setLatitude] = useState(auth.latitude);
-  const [bio, setBio] = useState(auth.bio)
-  const [profPic, setProfPic] = useState(auth.prof_pic)
+  const [bio, setBio] = useState(auth.bio);
+  const [profPic, setProfPic] = useState(auth.prof_pic);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
- console.log(auth)
-
   function handleSubmit(e) {
     e.preventDefault();
-
+    id = auth.id;
     fetch(`http://localhost:9292/chef/editprofile/${id}`, {
       method: 'PATCH',
       body: JSON.stringify({
@@ -30,6 +28,7 @@ function EditChefProfileModal() {
         latitude,
         chef_price: price,
         bio,
+        prof_pic: profPic,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -59,9 +58,8 @@ function EditChefProfileModal() {
   };
 
   const handleProfPic = (e) => {
-    setProfPic(e.target.value)
-  }
-  
+    setProfPic(e.target.value);
+  };
 
   return (
     <>
@@ -82,7 +80,7 @@ function EditChefProfileModal() {
                 <input
                   type="text"
                   className="modal-edit-control"
-                  id="phone-number"
+                  id="phoneNumber"
                   placeholder="Phone Number"
                   value={phone}
                   onChange={handlePhone}
@@ -115,7 +113,7 @@ function EditChefProfileModal() {
                 />
               </div>
               <div className="editProfileInputs">
-                <label className="form-label" htmlFor="profile-pic">
+                <label className="form-label" htmlFor="profilepic">
                   Profile Picture Link:
                 </label>
                 <input
@@ -154,7 +152,7 @@ function EditChefProfileModal() {
                 />
               </div>
               <div className="editProfileInputs">
-                <label className="form-label" htmlFor="Bio">
+                <label className="form-label" htmlFor="bio">
                   Bio:
                 </label>
                 <input
