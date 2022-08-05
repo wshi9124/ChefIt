@@ -40,8 +40,8 @@ function Chef() {
   }
   return (
     <>
-      <ChefNavBar />
       <Logo />
+      <ChefNavBar />
       <div className="center-flex huge-gap">
         <img className="outer-profile-placement" width="350px" height="350px" src={img} />
         <div className="content-card">
