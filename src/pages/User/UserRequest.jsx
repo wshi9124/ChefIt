@@ -22,7 +22,7 @@ function UserRequest() {
           <div className="card">
             <div className="firstinfo">
               <div className="profile-image-container">
-                <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+                <img src={auth.prof_pic}/>
               </div>
               <div className="profileinfo">
                 <h1>

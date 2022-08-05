@@ -16,7 +16,6 @@ import RedirectToLogin from './pages/Login/RedirectToLogin';
 import './app.css';
 
 function App() {
-
   const { isCustomerLogOn, isChefLogOn } = useContext(AuthContext);
   if (isCustomerLogOn) {
     return (
