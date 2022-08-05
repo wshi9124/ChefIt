@@ -48,7 +48,7 @@ function Chef() {
           <div className="card">
             <div className="firstinfo">
               <div className="profile-image-container">
-                <img src = {auth.prof_pric} />
+                <img src={auth.prof_pic} />
               </div>
               <div className="profileinfo">
                 <h1>
@@ -58,7 +58,14 @@ function Chef() {
                     <EditChefProfileModal />
                   </div>
                 </h1>
-                <h3>{auth.username}<b style={{color:"black",marginLeft:"15px"}}>${auth.chef_price}0</b></h3>
+                <h3>
+                  {auth.username}
+                  <b style={{ color: 'black', marginLeft: '15px' }}>
+                    $
+                    {auth.chef_price}
+                    0
+                  </b>
+                </h3>
                 <p>{`${auth.email} ${auth.phone}`}</p>
                 <p className="bio">
                   {auth.bio}
