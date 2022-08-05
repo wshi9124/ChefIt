@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import AuthContext from '../Login/AuthProvider';
@@ -15,7 +14,6 @@ function EditChefProfileModal() {
   const [profPic, setProfPic] = useState("")
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const navigate = useNavigate();
 
   const {auth} = useContext(AuthContext)
 
@@ -63,21 +61,20 @@ function EditChefProfileModal() {
     setProfPic(e.target.value);
   };
 
-
   return (
     <>
       <Button variant="dark" onClick={handleShow}>
         Edit
       </Button>
-        <Modal show={show} onHide={handleClose} centered>
-          <Modal.Header closeButton>
-            <Modal.Title>Edit Your Info</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div className='form-group'>
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Your Info</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="form-group">
             <form onSubmit={handleSubmit}>
               <div className="editProfileInputs">
-                <label classname='form-label' htmlFor="phoneNumber">
+                <label className="form-label" htmlFor="phoneNumber">
                   Phone:
                 </label>
                 <input
@@ -90,7 +87,7 @@ function EditChefProfileModal() {
                 />
               </div>
               <div className="editProfileInputs">
-                <label classname='form-label' htmlFor="email">
+                <label className="form-label" htmlFor="email">
                   Email:
                 </label>
                 <input
@@ -103,7 +100,7 @@ function EditChefProfileModal() {
                 />
               </div>
               <div className="editProfileInputs">
-                <label classname='form-label' htmlFor="price">
+                <label className="form-label" htmlFor="price">
                   Price:
                 </label>
                 <input
@@ -142,7 +139,7 @@ function EditChefProfileModal() {
                 />
               </div>
               <div className="editProfileInputs">
-                <label classname='form-label' htmlFor="latitude">
+                <label className="form-label" htmlFor="latitude">
                   Latitude:
                 </label>
                 <input
@@ -155,7 +152,7 @@ function EditChefProfileModal() {
                 />
               </div>
               <div className="editProfileInputs">
-                <label classname='form-label' htmlFor="Bio">
+                <label className="form-label" htmlFor="Bio">
                   Bio:
                 </label>
                 <input
@@ -167,14 +164,14 @@ function EditChefProfileModal() {
                   onChange={handleBio}
                 />
               </div>
-              </form>
-            
-            </div>
-          </Modal.Body>
-          <Modal.Footer>
-          <Button className='save' type="submit" onClick={handleSubmit}>Save</Button>
-          </Modal.Footer>
-        </Modal>
+            </form>
+
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button className="save" type="submit" onClick={handleSubmit}>Save</Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
