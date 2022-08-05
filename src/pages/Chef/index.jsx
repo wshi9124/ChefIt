@@ -48,7 +48,7 @@ function Chef() {
           <div className="card">
             <div className="firstinfo">
               <div className="profile-image-container">
-                <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+                <img src = {auth.prof_pric} />
               </div>
               <div className="profileinfo">
                 <h1>
@@ -58,7 +58,7 @@ function Chef() {
                     <EditChefProfileModal />
                   </div>
                 </h1>
-                <h3>{auth.username}</h3>
+                <h3>{auth.username}<b style={{color:"black",marginLeft:"15px"}}>${info.chef_price}0</b></h3>
                 <p>{`${auth.email} ${auth.phone}`}</p>
                 <p className="bio">
                   {auth.bio}

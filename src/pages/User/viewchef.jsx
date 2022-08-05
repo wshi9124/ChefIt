@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../../commonComponents/Logo';
-import RequestModal from './requestmodal';
 import { useParams } from 'react-router-dom';
+import UserNavBar from './UserNavBar';
+
+const img = 'https://media.istockphoto.com/photos/old-grunge-dark-textured-wooden-backgroundthe-surface-of-the-old-picture-id865432924?k=20&m=865432924&s=612x612&w=0&h=fCWAbNMq85WP8oWie-DtmZmDzJxV5c61rU9TmG2uPdk=';
 
 function ViewChef() {
   const [info, setInfo] = useState([]);
   const chefId = useParams()
-  const [modalShow, setModalShow] = useState(false);
 
+  const [cuisines, setCuisines] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
+  console.log(cuisines)
   useEffect(() => {
     fetch('http://localhost:9292/chef/'+chefId.chefId)
       .then((res) => res.json())
@@ -16,52 +20,54 @@ function ViewChef() {
         console.log(infoData);
       });
   }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:9292/cuisines/'+info.id).then((resp) => resp.json()).then(setCuisines);
+  }, []);
   return (
     <>
       <Logo />
-      <div className="chef-home">
-        <h1>Your Profile</h1>
-        <div className="image-overlay-container">
-          <img className="rounded-image" src="https://img.freepik.com/free-photo/portrait-happy-male-chef-dressed-uniform_171337-5354.jpg?w=2000" width="400" height="300" alt="Profile Pic" />
-          <div className="text-overlay-container">
-            <div className="infoText">
-              <h3>Username</h3>
-              <p>{info.username}</p>
-            </div>
-            <div className="infoText">
-              <h3>Full Name</h3>
-              <p>{`${info.first_name} ${info.last_name}`}</p>
-            </div>
-            <div className="infoText">
-              <h3>Password</h3>
-              <p>{info.password}</p>
-            </div>
-            <div className="infoText">
-              <h3>Phone Number</h3>
-              <p>{info.phone}</p>
-            </div>
-            <div className="infoText">
-              <h3>Email</h3>
-              <p>{info.email}</p>
-            </div>
-            <div className="infoText">
-              <h3>Location</h3>
-              <p>{`Longitude: ${info.longitude} 'Latitude: ${info.latitude}`}</p>
-            </div>
-            <div className="infoText">
-              <h3>Your Price</h3>
-              <p>{info.chef_price}</p>
+      <UserNavBar/>
+      <div className="center-flex huge-gap">
+        <img className="outer-profile-placement" width="350px" height="350px" src={img} />
+        <div className="content-card">
+          <div className="card">
+            <div className="firstinfo">
+              <div className="profile-image-container">
+                <img src = {info.prof_pric} />
+              </div>
+              <div className="profileinfo">
+                <h1>
+                  <div className="center-flex">
+                    {`${info.first_name} ${info.last_name}`}
+                  </div>
+                </h1>
+                <h3>{info.username}<b style={{color:"black",marginLeft:"15px"}}>${info.chef_price}0</b></h3>
+                <p>{`${info.email} ${info.phone}`}</p>
+                <p className="bio">
+                  {info.bio}
+                  {' '}
+                </p>
+              </div>
             </div>
           </div>
-          <button type="button"onClick={() => setModalShow(true)}>More</button>
-          <RequestModal
-            fullName={`${info.first_name} ${info.last_name}`}
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
+          <div className="badgescard">
+            {' '}
+            {cuisines.map((cuisine) => (
+              <span
+                className="badge"
+                style={{ backgroundColor: 'green' }}
+                key={cuisine.id}
+              >
+                {cuisine.name}
+              </span>
+            ))}
+            {' '}
+          </div>
         </div>
+        <img className="outer-profile-placement" width="350px" height="350px" src={img} />
       </div>
-
+      <hr />
     </>
   );
 }
