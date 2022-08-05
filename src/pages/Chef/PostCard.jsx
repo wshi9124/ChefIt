@@ -7,10 +7,12 @@ function PostCard({
     deleteCallback(id);
   }
   return (
-    <div>
-      <img src={img} alt="PostCardImage" />
-      <p>{name}</p>
-      <button type="button" onClick={handledelete}>Delete</button>
+    <div className="chefinfocontainer">
+      <img className='border-image' style={{objectFit:"contain"}} src={img} alt="PostCardImage" width="300px" height="300px" />
+        <div className="info-header">
+        <button className="badge" style={{ backgroundColor: 'blue' }}>{name}</button>
+        <button className='badge'style={{ backgroundColor: 'red' }} type="button" onClick={handledelete}>Delete</button>
+      </div>
     </div>
   );
 }
