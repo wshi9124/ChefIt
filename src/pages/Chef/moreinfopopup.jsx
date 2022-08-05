@@ -1,12 +1,13 @@
+import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import StarFill from '../../commonComponents/starfill';
 
 function MoreInfoPopup({
-  show, onHide, fullname = '', user_comments = [],
+  show, onHide, fullname = '', userComments = [],
 }) {
-  const filteredrating = ' ' || user_comments.map((comment) => comment.rating).reduce((sum, ele) => sum + ele);
+  const filteredrating = ' ' || userComments.map((comment) => comment.rating).reduce((sum, ele) => sum + ele);
 
-  const reviewList = user_comments.map((review) => (
+  const reviewList = userComments.map((review) => (
     <div className="info-popup-item" key={review.id}>
       <p>{review.comment}</p>
       <StarFill iter={review.rating} />

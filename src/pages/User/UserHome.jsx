@@ -57,12 +57,12 @@ function UserHome() {
     return 0;
   });
 
-  function selectcallback(select) {
-    setSelect(select);
+  function selectcallback(selectInput) {
+    setSelect(selectInput);
   }
 
-  function textcallback(text) {
-    setText(text);
+  function textcallback(textInput) {
+    setText(textInput);
   }
   function searchcallback() {
     // for (let i = filterChef.length-1; i>=0; i--) {

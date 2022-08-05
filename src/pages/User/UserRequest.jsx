@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import Logo from '../../commonComponents/Logo';
 import UserNavBar from './UserNavBar';
 import AuthContext from '../Login/AuthProvider';
@@ -7,17 +7,6 @@ import UserEditInfo from './UserEditInfo';
 
 function UserRequest() {
   const { auth } = useContext(AuthContext);
-  const [modalShow, setModalShow] = React.useState(false);
-  const [requests, setRequests] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:9292/chef/requests/4')
-      .then((res) => res.json())
-      .then((jsonResult) => {
-        setRequests(jsonResult);
-      });
-  }, []);
-  console.log(auth.first_name);
 
   return (
     <div>

@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../../commonComponents/Logo';
-import { Button } from 'react-bootstrap';
 import RequestModal from './requestmodal';
 
 function ViewChef() {
-
-  
   const [info, setInfo] = useState([]);
 
   const [modalShow, setModalShow] = useState(false);
@@ -24,7 +21,7 @@ function ViewChef() {
       <div className="chef-home">
         <h1>Your Profile</h1>
         <div className="image-overlay-container">
-          <img className="rounded-image" src="https://img.freepik.com/free-photo/portrait-happy-male-chef-dressed-uniform_171337-5354.jpg?w=2000" width="400" height="300" />
+          <img className="rounded-image" src="https://img.freepik.com/free-photo/portrait-happy-male-chef-dressed-uniform_171337-5354.jpg?w=2000" width="400" height="300" alt="Profile Pic" />
           <div className="text-overlay-container">
             <div className="infoText">
               <h3>Username</h3>
@@ -48,7 +45,7 @@ function ViewChef() {
             </div>
             <div className="infoText">
               <h3>Location</h3>
-              <p>{'Longitude:' + ` ${info.longitude} ` + 'Latitude:' + ` ${info.latitude}`}</p>
+              <p>{`Longitude: ${info.longitude} 'Latitude: ${info.latitude}`}</p>
             </div>
             <div className="infoText">
               <h3>Your Price</h3>
@@ -56,9 +53,11 @@ function ViewChef() {
             </div>
           </div>
           <button type="button" onClick={() => setModalShow(true)}>More</button>
-        <RequestModal fullName={`${info.first_name} ${info.last_name}`} show = {modalShow}                     
+          <RequestModal
+            fullName={`${info.first_name} ${info.last_name}`}
+            show={modalShow}
             onHide={() => setModalShow(false)}
-        />
+          />
         </div>
       </div>
 

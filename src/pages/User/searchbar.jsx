@@ -1,7 +1,8 @@
+import React from 'react';
+
 function SearchBar({ textcallback, text, searchcallback }) {
   function handleInput(e) {
-    const text = e.target.value;
-    textcallback(text);
+    textcallback(e.target.value);
   }
   function handleSubmit(e) {
     e.preventDefault();
