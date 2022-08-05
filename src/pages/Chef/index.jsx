@@ -20,10 +20,14 @@ function Chef() {
     <>
     <ChefNavBar/>
     <Logo/>
-    <div className='center-flex'>
+    <div className='center-flex huge-gap'>
+    <img className='outer-profile-placement' width="350px" height="350px" src={img}/>
       <div className="content-card">
         <div className="card">
-          <div className="firstinfo"><img src="https://randomuser.me/api/portraits/lego/6.jpg"/>
+          <div className="firstinfo">
+            <div className="profile-image-container">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg"/>
+            </div>
           <div className="profileinfo">
             <h1>{`${auth.first_name} ${auth.last_name}`}</h1>
             <h3>{auth.username}</h3>
@@ -35,10 +39,14 @@ function Chef() {
         <div className="badgescard"> {cuisines.map(cuisine=><span className="badge" style={{backgroundColor:"green"}} 
         key={cuisine.id}>{cuisine.name}</span>)} </div>
       </div>
+      <div className='button-displace'>
+        <AddPictureModal id={auth.id}/>
+        <EditChefProfileModal auth={auth}/>
+      </div>
+      <img className='outer-profile-placement' width="350px" height="350px" src={img}/>
     </div>
-      <AddPictureModal id={auth.id}/>
-      <EditChefProfileModal auth={auth}/>
-      <ProfilePosts id = {auth.id}/>
+    <hr/>
+    <ProfilePosts id = {auth.id}/>
     </>
   );
 }

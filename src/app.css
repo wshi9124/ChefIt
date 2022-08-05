@@ -260,7 +260,7 @@ Side Drop Bar
   margin: 10px auto;
   display: grid;
   grid-template-columns: auto auto auto auto;
-  gap: 10px 20px;
+  gap: 20px 20px;
   max-width: fit-content;
 
 }
@@ -360,6 +360,12 @@ Side Drop Bar
 .large-gap {
   gap:15px;
 }
+.outer-profile-placement {
+  margin-top: 20px;
+  padding: 5px;
+  object-fit: cover;
+  border-radius: 5px;
+}
 .header-info-card {
   background-color: #0093E9;
   background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
@@ -370,7 +376,9 @@ Side Drop Bar
 .star-review {
   color: #FFD700;
 }
-  
+.huge-gap {
+  gap:30px;
+}
 .infoText {
   padding-top: 5%;
   border-bottom: 0.5px solid rgb(211, 211, 211);
@@ -487,9 +495,12 @@ Side Drop Bar
   position: relative;
 }
 .firstinfo img {
-  border-radius: 50%;
   width: 120px;
   height: 120px;
+  border-radius: 50%;
+}
+.profile-image-container {
+  object-fit: cover;
 }
 .firstinfo .profileinfo {
   padding: 0px 20px;
@@ -536,6 +547,9 @@ Side Drop Bar
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.button-displace {
+  text-align: center;
 }
 
 @keyframes animatop {
