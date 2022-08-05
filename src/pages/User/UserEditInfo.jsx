@@ -70,8 +70,9 @@ function UserEditInfo({ auth }) {
             <Modal.Title>Edit Your Info</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <div className='form-group'>
             <div className="editProfileInputs">
-              <label htmlFor="phoneNumber">
+              <label classname='form-label' htmlFor="phoneNumber">
                 Phone:
               </label>
               <input
@@ -84,7 +85,7 @@ function UserEditInfo({ auth }) {
               />
             </div>
             <div className="editProfileInputs">
-              <label htmlFor="email">
+              <label classname='form-label' htmlFor="email">
                 Email:
               </label>
               <input
@@ -97,7 +98,7 @@ function UserEditInfo({ auth }) {
               />
             </div>
             <div className="editProfileInputs">
-              <label htmlFor="longitude">
+              <label classname='form-label' htmlFor="longitude">
                 Longitude:
               </label>
               <input
@@ -110,7 +111,7 @@ function UserEditInfo({ auth }) {
               />
             </div>
             <div className="editProfileInputs">
-              <label htmlFor="latitude">
+              <label classname='form-label' htmlFor="latitude">
                 Latitude:
               </label>
               <input
@@ -122,9 +123,12 @@ function UserEditInfo({ auth }) {
                 onChange={handleLatitude}
               />
             </div>
-            <p />
-            <Button type='submit' onClick={handleSubmit}>Save</Button>
+            </div>
+           
           </Modal.Body>
+          <Modal.Footer>
+          <Button type='submit' onClick={handleSubmit}>Save</Button>
+          </Modal.Footer>
         </Modal>
       </form>
     </div>

@@ -11,6 +11,7 @@ function EditChefProfileModal({ auth }) {
   const [price, setPrice] = useState('');
   const [longitude, setLongitude] = useState('');
   const [latitude, setLatitude] = useState('');
+  const [bio, setBio] = useState('')
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ function EditChefProfileModal({ auth }) {
     e.preventDefault();
 
     const newData = {
-      phone, email, price, longitude, latitude,
+      phone, email, price, longitude, latitude, bio
     };
 
     console.log(newData);
@@ -36,13 +37,14 @@ function EditChefProfileModal({ auth }) {
         longitude,
         latitude,
         chef_price: price,
+        bio
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
       .then((response) => response.json())
-      .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setPrice(updatedInfo.price), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude));
+      .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setPrice(updatedInfo.price), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setBio(updatedInfo.bio));
   }
 
   const handlePhone = (e) => {
@@ -60,6 +62,10 @@ function EditChefProfileModal({ auth }) {
   const handleLatitude = (e) => {
     setLatitude(e.target.value);
   };
+  const handleBio = (e) => {
+    setBio(e.target.value);
+  };
+
 
   return (
     <>
@@ -71,9 +77,10 @@ function EditChefProfileModal({ auth }) {
             <Modal.Title>Edit Your Info</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <div className='form-group'>
             <form onSubmit={handleSubmit}>
               <div className="editProfileInputs">
-                <label htmlFor="phoneNumber">
+                <label classname='form-label' htmlFor="phoneNumber">
                   Phone:
                 </label>
                 <input
@@ -86,7 +93,7 @@ function EditChefProfileModal({ auth }) {
                 />
               </div>
               <div className="editProfileInputs">
-                <label htmlFor="email">
+                <label classname='form-label' htmlFor="email">
                   Email:
                 </label>
                 <input
@@ -99,7 +106,7 @@ function EditChefProfileModal({ auth }) {
                 />
               </div>
               <div className="editProfileInputs">
-                <label htmlFor="price">
+                <label classname='form-label' htmlFor="price">
                   Price:
                 </label>
                 <input
@@ -112,7 +119,7 @@ function EditChefProfileModal({ auth }) {
                 />
               </div>
               <div className="editProfileInputs">
-                <label htmlFor="longitude">
+                <label classname='form-label' htmlFor="longitude">
                   Longitude:
                 </label>
                 <input
@@ -125,7 +132,7 @@ function EditChefProfileModal({ auth }) {
                 />
               </div>
               <div className="editProfileInputs">
-                <label htmlFor="latitude">
+                <label classname='form-label' htmlFor="latitude">
                   Latitude:
                 </label>
                 <input
@@ -137,9 +144,26 @@ function EditChefProfileModal({ auth }) {
                   onChange={handleLatitude}
                 />
               </div>
+              <div className="editProfileInputs">
+                <label classname='form-label' htmlFor="Bio">
+                  Bio:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="bio"
+                  placeholder="Bio"
+                  value={latitude}
+                  onChange={handleBio}
+                />
+              </div>
               </form>
-            <Button type="submit" onClick={handleSubmit}>Save</Button>
+            
+            </div>
           </Modal.Body>
+          <Modal.Footer>
+          <Button className='save' type="submit" onClick={handleSubmit}>Save</Button>
+          </Modal.Footer>
         </Modal>
     </>
   );
