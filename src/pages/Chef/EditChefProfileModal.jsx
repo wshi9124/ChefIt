@@ -4,18 +4,19 @@ import Modal from 'react-bootstrap/Modal';
 import AuthContext from '../Login/AuthProvider';
 
 function EditChefProfileModal() {
+  const {auth} = useContext(AuthContext)
   const [show, setShow] = useState(false);
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [price, setPrice] = useState('');
-  const [longitude, setLongitude] = useState('');
-  const [latitude, setLatitude] = useState('');
-  const [bio, setBio] = useState('')
-  const [profPic, setProfPic] = useState("")
+  const [phone, setPhone] = useState(auth.phone);
+  const [email, setEmail] = useState(auth.email);
+  const [price, setPrice] = useState(auth.price);
+  const [longitude, setLongitude] = useState(auth.longitude);
+  const [latitude, setLatitude] = useState(auth.latitude);
+  const [bio, setBio] = useState(auth.bio)
+  const [profPic, setProfPic] = useState(auth.profPic)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const {auth} = useContext(AuthContext)
+ 
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -82,7 +83,7 @@ function EditChefProfileModal() {
                   className="modal-edit-control"
                   id="phone-number"
                   placeholder="Phone Number"
-                  value={auth.phone}
+                  value={phone}
                   onChange={handlePhone}
                 />
               </div>
@@ -95,7 +96,7 @@ function EditChefProfileModal() {
                   className="modal-edit-control"
                   id="email"
                   placeholder="Email"
-                  value={auth.email}
+                  value={email}
                   onChange={handleEmail}
                 />
               </div>
@@ -108,7 +109,7 @@ function EditChefProfileModal() {
                   className="modal-edit-control"
                   id="price"
                   placeholder="Price"
-                  value={auth.price}
+                  value={price}
                   onChange={handlePrice}
                 />
               </div>
@@ -121,7 +122,7 @@ function EditChefProfileModal() {
                   className="modal-edit-control"
                   id="profilepic"
                   placeholder="Profilepic"
-                  value={auth.prof_pic}
+                  value={profPic}
                   onChange={handleProfPic}
                 />
               </div>
@@ -134,7 +135,7 @@ function EditChefProfileModal() {
                   className="modal-edit-control"
                   id="longitude"
                   placeholder="Longitude"
-                  value={auth.longitude}
+                  value={longitude}
                   onChange={handleLongitude}
                 />
               </div>
@@ -147,7 +148,7 @@ function EditChefProfileModal() {
                   className="modal-edit-control"
                   id="latitude"
                   placeholder="latitude"
-                  value={auth.latitude}
+                  value={latitude}
                   onChange={handleLatitude}
                 />
               </div>
@@ -160,7 +161,7 @@ function EditChefProfileModal() {
                   className="modal-edit-control"
                   id="bio"
                   placeholder="Bio"
-                  value={auth.bio}
+                  value={bio}
                   onChange={handleBio}
                 />
               </div>

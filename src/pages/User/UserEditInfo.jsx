@@ -5,17 +5,18 @@ import Modal from 'react-bootstrap/Modal';
 import AuthContext from '../Login/AuthProvider';
 
 function UserEditInfo() {
+  const {auth} = useContext(AuthContext)
   const [show, setShow] = useState(false);
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [longitude, setLongitude] = useState('');
-  const [latitude, setLatitude] = useState('');
-  const [profPic, setProfPic] = useState("")
+  const [phone, setPhone] = useState(auth.phone);
+  const [email, setEmail] = useState(auth.email);
+  const [longitude, setLongitude] = useState(auth.longitude);
+  const [latitude, setLatitude] = useState(auth.latitude);
+  const [profPic, setProfPic] = useState(auth.profPic)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
 
- const {auth} = useContext(AuthContext)
+ 
 
 
   function handleSubmit(e) {
@@ -80,7 +81,7 @@ function UserEditInfo() {
                 className="modal-edit-control"
                 id="phone-number"
                 placeholder="Phone Number"
-                value={auth.phone}
+                value={phone}
                 onChange={handlePhone}
               />
             </div>
@@ -93,7 +94,7 @@ function UserEditInfo() {
                 className="modal-edit-control"
                 id="email"
                 placeholder="Email"
-                value={auth.email}
+                value={email}
                 onChange={handleEmail}
               />
             </div>
@@ -106,7 +107,7 @@ function UserEditInfo() {
                 className="modal-edit-control"
                 id="email"
                 placeholder="Email"
-                value={auth.prof_pic}
+                value={profPic}
                 onChange={handleProfPic}
               />
             </div>
@@ -119,7 +120,7 @@ function UserEditInfo() {
                 className="modal-edit-control"
                 id="longitude"
                 placeholder="Longitude"
-                value={auth.longitude}
+                value={longitude}
                 onChange={handleLongitude}
               />
             </div>
@@ -132,7 +133,7 @@ function UserEditInfo() {
                 className="modal-edit-control"
                 id="latitude"
                 placeholder="latitude"
-                value={auth.latitude}
+                value={latitude}
                 onChange={handleLatitude}
               />
             </div>
