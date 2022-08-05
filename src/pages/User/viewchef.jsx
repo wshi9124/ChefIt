@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Logo from '../../commonComponents/Logo';
 import { useParams } from 'react-router-dom';
 import UserNavBar from './UserNavBar';
+import RequestModal from './requestmodal';
 
 const img = 'https://media.istockphoto.com/photos/old-grunge-dark-textured-wooden-backgroundthe-surface-of-the-old-picture-id865432924?k=20&m=865432924&s=612x612&w=0&h=fCWAbNMq85WP8oWie-DtmZmDzJxV5c61rU9TmG2uPdk=';
 
 function ViewChef() {
+
   const [info, setInfo] = useState([]);
   const chefId = useParams()
 
@@ -64,6 +66,13 @@ function ViewChef() {
             ))}
             {' '}
           </div>
+          <button type="button change-z "onClick={() => setModalShow(true)}>More</button>
+          <RequestModal
+            fullName={`${info.first_name} ${info.last_name}`}
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
+     
         </div>
         <img className="outer-profile-placement" width="350px" height="350px" src={img} />
       </div>
