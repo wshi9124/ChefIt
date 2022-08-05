@@ -11,7 +11,7 @@ function UserEditInfo() {
   const [email, setEmail] = useState(auth.email);
   const [longitude, setLongitude] = useState(auth.longitude);
   const [latitude, setLatitude] = useState(auth.latitude);
-  const [profPic, setProfPic] = useState(auth.profPic)
+  const [profPic, setProfPic] = useState(auth.prof_pic)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -36,7 +36,7 @@ function UserEditInfo() {
   },
 })
   .then((response) => response.json())
-  .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setProfPic(updatedInfo.profPic)
+  .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setProfPic(updatedInfo.prof_pic)
     );
 
   }
