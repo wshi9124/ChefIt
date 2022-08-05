@@ -35,8 +35,7 @@ function UserHome() {
       });
   }, []);
 
-  const filterChef = searchChef.filter((chef) => {
-    if (!text) return true;
+  const filterChef = !text ? text : searchChef.filter((chef) => {
     for (const attr in chef) {
       if (chef[attr]) {
         if (chef[attr].toString().includes(text)) return true;
@@ -57,12 +56,12 @@ function UserHome() {
     return 0;
   });
 
-  function selectcallback(select) {
-    setSelect(select);
+  function selectcallback(selectInput) {
+    setSelect(selectInput);
   }
 
-  function textcallback(text) {
-    setText(text);
+  function textcallback(textInput) {
+    setText(textInput);
   }
   function searchcallback() {
     // for (let i = filterChef.length-1; i>=0; i--) {
