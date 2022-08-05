@@ -30,14 +30,13 @@ function EditChefProfileModal() {
         latitude,
         chef_price: price,
         bio,
-        prof_pic: profPic
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
       .then((response) => response.json())
-      .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setPrice(updatedInfo.price), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setBio(updatedInfo.bio), setProfPic(updatedInfo.profPic))
+      .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setPrice(updatedInfo.price), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setBio(updatedInfo.bio), setProfPic(updatedInfo.profPic));
   }
 
   const handlePhone = (e) => {
@@ -57,9 +56,6 @@ function EditChefProfileModal() {
   };
   const handleBio = (e) => {
     setBio(e.target.value);
-  };
-  const handleProfPic = (e) => {
-    setProfPic(e.target.value);
   };
 
   return (
@@ -114,7 +110,7 @@ function EditChefProfileModal() {
                 />
               </div>
               <div className="editProfileInputs">
-                <label classname='form-label' htmlFor="profile-pic">
+                <label className="form-label" htmlFor="profile-pic">
                   Profile Picture Link:
                 </label>
                 <input
@@ -127,7 +123,7 @@ function EditChefProfileModal() {
                 />
               </div>
               <div className="editProfileInputs">
-                <label classname='form-label' htmlFor="longitude">
+                <label className="form-label" htmlFor="longitude">
                   Longitude:
                 </label>
                 <input

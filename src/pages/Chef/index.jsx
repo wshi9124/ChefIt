@@ -56,9 +56,8 @@ function Chef() {
                   <div className="center-flex">
                     {`${auth.first_name} ${auth.last_name}`}
                     <AddPictureModal handleSetPost={handleSetPost} id={auth.id} />
-                    <EditChefProfileModal auth={auth} />
+                    <EditChefProfileModal />
                   </div>
-
                 </h1>
                 <h3>{auth.username}</h3>
                 <p>{`${auth.email} ${auth.phone}`}</p>
@@ -81,7 +80,6 @@ function Chef() {
               </span>
             ))}
             {' '}
-
           </div>
         </div>
         <img className="outer-profile-placement" width="350px" height="350px" src={img} />
