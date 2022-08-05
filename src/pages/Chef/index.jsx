@@ -41,7 +41,7 @@ function Chef() {
       </div>
       <div className='button-displace'>
         <AddPictureModal id={auth.id}/>
-        <EditChefProfileModal auth={auth}/>
+        <EditChefProfileModal />
       </div>
       <img className='outer-profile-placement' width="350px" height="350px" src={img}/>
     </div>

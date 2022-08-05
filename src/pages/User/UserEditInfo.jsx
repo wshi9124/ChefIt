@@ -4,26 +4,22 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import AuthContext from '../Login/AuthProvider';
 
-function UserEditInfo({ auth }) {
+function UserEditInfo() {
   const [show, setShow] = useState(false);
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [longitude, setLongitude] = useState('');
   const [latitude, setLatitude] = useState('');
+  const [profPic, setProfPic] = useState("")
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
 
-  let id = auth.id
+ const {auth} = useContext(AuthContext)
 
-  console.log(id)
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    let newData = {phone, email, longitude, latitude}
-
-    console.log(newData)
 
     fetch('http://localhost:9292/user/editprofile/'+id, {
   method: 'PATCH',
@@ -32,13 +28,14 @@ function UserEditInfo({ auth }) {
     email,
     longitude,
     latitude,
+    prof_pic: profPic
   }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
 })
   .then((response) => response.json())
-  .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude)
+  .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setProfPic(updatedInfo.profPic)
     );
 
   }
@@ -56,6 +53,9 @@ function UserEditInfo({ auth }) {
   const handleLatitude = (e) => {
     setLatitude(e.target.value);
   };
+  const handleProfPic = (e) => {
+    setProfPic(e.target.value)
+  }
 
   return (
     <div>
@@ -80,7 +80,7 @@ function UserEditInfo({ auth }) {
                 className="modal-edit-control"
                 id="phone-number"
                 placeholder="Phone Number"
-                value={phone}
+                value={auth.phone}
                 onChange={handlePhone}
               />
             </div>
@@ -93,8 +93,21 @@ function UserEditInfo({ auth }) {
                 className="modal-edit-control"
                 id="email"
                 placeholder="Email"
-                value={email}
+                value={auth.email}
                 onChange={handleEmail}
+              />
+            </div>
+            <div className="editProfileInputs">
+              <label classname='form-label' htmlFor="email">
+                Profile Picture:
+              </label>
+              <input
+                type="text"
+                className="modal-edit-control"
+                id="email"
+                placeholder="Email"
+                value={auth.prof_pic}
+                onChange={handleProfPic}
               />
             </div>
             <div className="editProfileInputs">
@@ -106,7 +119,7 @@ function UserEditInfo({ auth }) {
                 className="modal-edit-control"
                 id="longitude"
                 placeholder="Longitude"
-                value={longitude}
+                value={auth.longitude}
                 onChange={handleLongitude}
               />
             </div>
@@ -119,7 +132,7 @@ function UserEditInfo({ auth }) {
                 className="modal-edit-control"
                 id="latitude"
                 placeholder="latitude"
-                value={latitude}
+                value={auth.latitude}
                 onChange={handleLatitude}
               />
             </div>
