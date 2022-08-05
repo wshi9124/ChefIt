@@ -10,12 +10,13 @@ function LogOutButton() {
     setAuth({});
     setIsCustomerLogOn(false);
     setIsChefLog(false);
+    localStorage.clear();
     navigate('/login');
   };
 
   return (
     <div>
-      <button type="button" onClick={handleLogOut}>Log Out</button>
+      <button type="button" className="logOutButton" onClick={handleLogOut}>Log Out</button>
     </div>
   );
 }

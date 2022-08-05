@@ -40,6 +40,7 @@ function CreateChefAccount() {
     setAuth({});
     setIsCustomerLogOn(false);
     setIsChefLog(false);
+    localStorage.clear();
     alert('Chef account has been created');
   };
 
@@ -48,6 +49,7 @@ function CreateChefAccount() {
     setAuth({});
     setIsCustomerLogOn(false);
     setIsChefLog(false);
+    localStorage.clear();
   };
 
   return (

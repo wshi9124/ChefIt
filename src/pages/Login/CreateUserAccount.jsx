@@ -39,6 +39,7 @@ function CreateUserAccount() {
     setAuth({});
     setIsCustomerLogOn(false);
     setIsChefLog(false);
+    localStorage.clear();
     alert('Customer Account has been created');
   };
 
@@ -47,6 +48,7 @@ function CreateUserAccount() {
     setAuth({});
     setIsCustomerLogOn(false);
     setIsChefLog(false);
+    localStorage.clear();
   };
 
   return (

@@ -8,7 +8,9 @@ import CreateAccountModal from './CreateAccountModal';
 function Login() {
   const navigate = useNavigate();
 
-  const { setAuth, setIsCustomerLogOn, setIsChefLog } = useContext(AuthContext);
+  const {
+    auth, setAuth, setIsCustomerLogOn, setIsChefLog,
+  } = useContext(AuthContext);
   const userRef = useRef();
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
@@ -25,14 +27,20 @@ function Login() {
       .then((response) => response.json())
       .then((userInfo) => {
         if (userInfo.success === true && accountType === 'customer') {
-          setAuth(userInfo.data);
-          setIsCustomerLogOn(true);
-          setIsChefLog(false);
+          localStorage.setItem('authLocalStorage', JSON.stringify(userInfo.data));
+          localStorage.setItem('isCustomerStorage', 'true');
+          localStorage.setItem('isChefStorage', 'false');
+          setAuth(localStorage.getItem('authLocalStorage'));
+          setIsCustomerLogOn(JSON.parse(localStorage.getItem('isCustomerStorage')));
+          setIsChefLog(JSON.parse(localStorage.getItem('isChefStorage')));
           navigate('/user');
         } else if (userInfo.success === true && accountType === 'chef') {
-          setAuth(userInfo.data);
-          setIsCustomerLogOn(false);
-          setIsChefLog(true);
+          localStorage.setItem('authLocalStorage', JSON.stringify(userInfo.data));
+          localStorage.setItem('isCustomerStorage', 'false');
+          localStorage.setItem('isChefStorage', 'true');
+          setAuth(localStorage.getItem('authLocalStorage'));
+          setIsCustomerLogOn(JSON.parse(localStorage.getItem('isCustomerStorage')));
+          setIsChefLog(JSON.parse(localStorage.getItem('isChefStorage')));
           navigate('/chef');
         } else {
           setErrorMessage(userInfo.errorMessage);
@@ -41,7 +49,6 @@ function Login() {
         }
       });
   };
-
   return (
     <section className="login" onClick={() => setErrorMessage('')} onKeyDown={() => setErrorMessage('')}>
       <div className="login-form">

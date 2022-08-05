@@ -282,6 +282,44 @@ Side Drop Bar
     border-radius: 3px;
 }
 
+.form-group{
+  transition: all .3s
+}
+
+.form-label {
+  font-size: 1em;
+  display: block;
+  opacity: 1;
+  transform: translateY(-1.25);
+  transform-origin: 0 0;
+  transition: all .3;
+}
+
+.modal-edit-control {
+  box-shadow: none;
+  border-radius: 0px;
+  border-style: none none solid none;
+  width: 100%;
+  transition: all .5s;
+}
+
+.modal-edit-control::placeholder {
+  color: transparent
+}
+
+.modal-edit-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: blue;
+}
+
+.modal-edit-control:focus + .form-label,
+.modal-edit-control:not(:placeholder-shown) + .form-label {
+  transform: translateY(-2.5em) scale(.8);
+
+}
+
+
 
 .searchbar {
     box-sizing: border-box;
@@ -591,4 +629,67 @@ Side Drop Bar
     top: -24px;
     left: -78px;
   }
+}
+
+.logOutButton {
+  backface-visibility: hidden;
+  background: rgb(254,111,94);
+  border: 0;
+  border-radius: .375rem;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,Helvetica,sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+  padding: 1rem 1.25rem;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transform: translateZ(0) scale(1);
+  transition: transform .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  float: right;
+  margin-right: 20px;
+}
+
+.logOutButton:disabled {
+  color: #787878;
+  cursor: auto;
+}
+
+.logOutButton:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.logOutButton:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(.125rem);
+}
+
+.logOutButton:focus {
+  outline: 0 solid transparent;
+}
+
+.logOutButton:focus:before {
+  border-width: .125rem;
+  content: "";
+  left: calc(-1*.375rem);
+  pointer-events: none;
+  position: absolute;
+  top: calc(-1*.375rem);
+  transition: border-radius;
+  user-select: none;
+}
+
+.logOutButton:focus:not(:focus-visible) {
+  outline: 0 solid transparent;
+}
+
+.logOutButton:not(:disabled):active {
+  transform: translateY(.125rem);
 }

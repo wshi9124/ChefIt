@@ -3,6 +3,7 @@ import Logo from '../../commonComponents/Logo';
 import UserNavBar from './UserNavBar';
 import AuthContext from '../Login/AuthProvider';
 import LogOutButton from '../../commonComponents/LogOutButton';
+import UserEditInfo from './UserEditInfo';
 
 function UserRequest() {
   const { auth } = useContext(AuthContext);
@@ -14,6 +15,7 @@ function UserRequest() {
       <LogOutButton />
       <div>
         <h1>User Profile</h1>
+        <UserEditInfo auth={auth}/>
         <p>Username</p>
         <p>{auth.username}</p>
         <p>Image</p>
