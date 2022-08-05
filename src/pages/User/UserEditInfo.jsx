@@ -11,36 +11,31 @@ function UserEditInfo() {
   const [email, setEmail] = useState(auth.email);
   const [longitude, setLongitude] = useState(auth.longitude);
   const [latitude, setLatitude] = useState(auth.latitude);
-  const [profPic, setProfPic] = useState(auth.prof_pic)
+  const [profPic, setProfPic] = useState(auth.prof_pic);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
- 
-
 
   function handleSubmit(e) {
     e.preventDefault();
 
     fetch('http://localhost:9292/user/editprofile/'+id, {
-  method: 'PATCH',
-  body: JSON.stringify({
-    phone,
-    email,
-    longitude,
-    latitude,
+      method: 'PATCH',
+      body: JSON.stringify({
+        phone,
+        email,
+        longitude,
+        latitude,
     prof_pic: profPic
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
   .then((updatedInfo) => setPhone(updatedInfo.phone), setEmail(updatedInfo.email), setLongitude(updatedInfo.longitude), setLatitude(updatedInfo.latitude), setProfPic(updatedInfo.prof_pic)
     );
 
   }
-
 
   const handlePhone = (e) => {
     setPhone(e.target.value);
@@ -71,74 +66,73 @@ function UserEditInfo() {
             <Modal.Title>Edit Your Info</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className='form-group'>
-            <div className="editProfileInputs">
+              <div className="editProfileInputs">
               <label classname='form-label' htmlFor="phoneNumber">
-                Phone:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="phone-number"
-                placeholder="Phone Number"
-                value={phone}
-                onChange={handlePhone}
-              />
-            </div>
-            <div className="editProfileInputs">
+                  Phone:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="phoneNumber"
+                  placeholder="Phone Number"
+                  value={phone}
+                  onChange={handlePhone}
+                />
+              </div>
+              <div className="editProfileInputs">
               <label classname='form-label' htmlFor="email">
-                Email:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="email"
-                placeholder="Email"
-                value={email}
-                onChange={handleEmail}
-              />
-            </div>
-            <div className="editProfileInputs">
-              <label classname='form-label' htmlFor="email">
-                Profile Picture:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="email"
-                placeholder="Email"
-                value={profPic}
-                onChange={handleProfPic}
-              />
-            </div>
-            <div className="editProfileInputs">
+                  Email:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={handleEmail}
+                />
+              </div>
+              <div className="editProfileInputs">
+              <label classname='form-label' htmlFor="profilePic">
+                  Profile Picture:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="profilePic"
+                  placeholder="Email"
+                  value={profPic}
+                  onChange={handleProfPic}
+                />
+              </div>
+              <div className="editProfileInputs">
               <label classname='form-label' htmlFor="longitude">
-                Longitude:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="longitude"
-                placeholder="Longitude"
-                value={longitude}
-                onChange={handleLongitude}
-              />
-            </div>
-            <div className="editProfileInputs">
+                  Longitude:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="longitude"
+                  placeholder="Longitude"
+                  value={longitude}
+                  onChange={handleLongitude}
+                />
+              </div>
+              <div className="editProfileInputs">
               <label classname='form-label' htmlFor="latitude">
-                Latitude:
-              </label>
-              <input
-                type="text"
-                className="modal-edit-control"
-                id="latitude"
-                placeholder="latitude"
-                value={latitude}
-                onChange={handleLatitude}
-              />
+                  Latitude:
+                </label>
+                <input
+                  type="text"
+                  className="modal-edit-control"
+                  id="latitude"
+                  placeholder="latitude"
+                  value={latitude}
+                  onChange={handleLatitude}
+                />
+              </div>
             </div>
-            </div>
-           
+
           </Modal.Body>
           <Modal.Footer>
           <Button type='submit' onClick={handleSubmit}>Save</Button>
